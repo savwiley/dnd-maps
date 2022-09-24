@@ -1,6 +1,6 @@
 import React from "react";
-import Grid from "./components/Grid";
-import Dice from "./components/Dice";
+import Grid from "./components/Grid/index.js";
+import Dice from "./components/Dice/index.js";
 
 function App() {
   return (
