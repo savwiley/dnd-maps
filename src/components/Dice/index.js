@@ -11,13 +11,36 @@ const Dice = () => {
   return (
     <DiceBox>
 
-      <input type="text" id="amount" value={amount} /> 
+      <input 
+        type="text" 
+        id="amount" 
+        value={amount} 
+        onChange={(e) => setAmount(e.value)} 
+      /> 
       d 
-      <input type="text" id="sides" value={sides} /> 
+      <input 
+        type="text" 
+        id="sides" 
+        value={sides} 
+        onChange={(e) => setSides(e.value)} 
+      /> 
       + 
-      <input type="text" id="modifier" value={modifier} />
+      <input 
+        type="text" 
+        id="modifier" 
+        value={modifier} 
+        onChange={(e) => setModifier(e.value)} 
+      />
 
-      <input type="button" onClick={} />
+      <input 
+        type="button" 
+        value="Roll!"
+        onClick={() => {
+          console.log(`Number of Dice: ${amount}`);
+          console.log(`Type of Dice: d${sides}`);
+          console.log(`Modifier: ${amount}`);
+        }} 
+      />
 
       <Answer></Answer>
 
