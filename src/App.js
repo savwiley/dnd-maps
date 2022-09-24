@@ -6,6 +6,7 @@ function App() {
   return (
     <div>
       <Grid />
+      <Dice />
     </div>
   );
 }
