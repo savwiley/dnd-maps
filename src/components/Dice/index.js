@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DiceBox, Answer } from "./style"
+import { DiceBox } from "./style"
 
 const Dice = () => {
   const [amount, setAmount] = useState(1);
@@ -41,8 +41,6 @@ const Dice = () => {
           console.log(`Modifier: ${amount}`);
         }} 
       />
-
-      <Answer></Answer>
 
     </DiceBox>
   )
