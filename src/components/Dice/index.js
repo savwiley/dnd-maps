@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { rollDice } from "./rollDice";
 import { DiceBox } from "./style"
 
 const Dice = () => {
@@ -35,11 +36,7 @@ const Dice = () => {
       <input 
         type="button" 
         value="Roll!"
-        onClick={() => {
-          console.log(`Number of Dice: ${amount}`);
-          console.log(`Type of Dice: d${sides}`);
-          console.log(`Modifier: ${amount}`);
-        }} 
+        onClick={rollDice(amount, sides, modifier)} 
       />
 
     </DiceBox>
