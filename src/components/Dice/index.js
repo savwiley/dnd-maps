@@ -16,21 +16,21 @@ const Dice = () => {
         type="text" 
         id="amount" 
         value={amount} 
-        onChange={(e) => setAmount(e.value)} 
+        onChange={(e) => setAmount(e.target.value)} 
       /> 
       d 
       <input 
         type="text" 
         id="sides" 
         value={sides} 
-        onChange={(e) => setSides(e.value)} 
+        onChange={(e) => setSides(e.target.value)} 
       /> 
       + 
       <input 
         type="text" 
         id="modifier" 
         value={modifier} 
-        onChange={(e) => setModifier(e.value)} 
+        onChange={(e) => setModifier(e.target.value)} 
       />
 
       <input 
@@ -44,3 +44,5 @@ const Dice = () => {
 };
 
 export default Dice;
+
+// rollDice only fires when the inputs change, not when the button is pushed
