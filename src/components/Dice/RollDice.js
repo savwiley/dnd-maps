@@ -1,10 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { Inputs } from "./style";
 
 const RollDice = (props) => {
   const { useAmount, useSides, useModifier, amount, sides, modifier } = props;
 
   return (
-    <>
+    <Inputs>
       <input
         type="number"
         id="amount"
@@ -29,7 +31,7 @@ const RollDice = (props) => {
         value={modifier}
         onChange={(e) => useModifier(e.target.value)}
       />
-    </>
+    </Inputs>
   );
 
   /*
@@ -69,6 +71,19 @@ const RollDice = (props) => {
       Modifier: ${modifier}
     </>
     */
+
+//useAmount, useSides, useModifier, amount, sides, modifier
+RollDice.propTypes = {
+  useAmount: PropTypes.PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+  useSides: PropTypes.PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+  useModifier: PropTypes.PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.func,
+  ]),
+  amount: PropTypes.PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+  sides: PropTypes.PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+  modifier: PropTypes.PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+};
 
 //module.exports = rollDice;
 export default RollDice;
