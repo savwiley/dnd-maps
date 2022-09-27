@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { RollDice } from "./RollDice";
+import RollDice from "./RollDice";
+import AnswerBox from "./AnswerBox";
 import { DiceBox } from "./style";
 
 const Dice = () => {
@@ -14,14 +15,14 @@ const Dice = () => {
       let rolled = Math.floor(Math.random * sides) + modifier;
       setAnswer(`1 d${sides} + ${modifier} = ${rolled}`);
     }
-  }, [change]);
+  }, [amount, sides, modifier, change]);
 
   return (
     <DiceBox>
       <RollDice
-        useAmount={setAmount}
-        useSides={setSides}
-        useModifier={setModifier}
+        setAmount={setAmount}
+        setSides={setSides}
+        setModifier={setModifier}
         amount={amount}
         sides={sides}
         modifier={modifier}
@@ -39,5 +40,3 @@ const Dice = () => {
 };
 
 export default Dice;
-
-// rollDice only fires when the inputs change, not when the button is pushed

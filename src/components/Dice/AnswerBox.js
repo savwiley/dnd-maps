@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const AnswerBox = (props) => {
   const { answer } = props;
 
-  return <></>;
+  return <>{answer}</>;
 };
 
 AnswerBox.propTypes = {

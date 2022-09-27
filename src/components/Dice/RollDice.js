@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Inputs } from "./style";
 
 const RollDice = (props) => {
-  const { useAmount, useSides, useModifier, amount, sides, modifier } = props;
+  const { setAmount, setSides, setModifier, amount, sides, modifier } = props;
 
   return (
     <Inputs>
@@ -12,7 +12,7 @@ const RollDice = (props) => {
         id="amount"
         min="1"
         value={amount}
-        onChange={(e) => useAmount(e.target.value)}
+        onChange={(e) => setAmount(e.target.value)}
       />
       d
       <input
@@ -21,7 +21,7 @@ const RollDice = (props) => {
         min="2"
         max="100"
         value={sides}
-        onChange={(e) => useSides(e.target.value)}
+        onChange={(e) => setSides(e.target.value)}
       />
       +
       <input
@@ -29,7 +29,7 @@ const RollDice = (props) => {
         id="modifier"
         min="0"
         value={modifier}
-        onChange={(e) => useModifier(e.target.value)}
+        onChange={(e) => setModifier(e.target.value)}
       />
     </Inputs>
   );
@@ -39,30 +39,8 @@ const RollDice = (props) => {
     console.log(`Type of Dice: d${sides}`);
     console.log(`Modifier: ${modifier}`);
     console.log("===");
-
-  /*
-  let answer;
-  let answerArr = [];
-
-  if (amount === 1 && modifier === 0) {
-    answer = Math.floor(Math.random * sides);
-    return `1 d${sides} = ${answer}`;
-
-  } else if (amount === 1 && modifier > 0) {
-    answer = Math.floor(Math.random * sides) + modifier;
-    return `1 d${sides} + ${modifier} = ${answer}`;
-
-  } else {
-    for (let i = 0; i < amount; i++) {
-      answer = Math.floor(Math.random * sides) + modifier;
-      answerArr.push(`d${sides} + ${modifier} = ${answer}`);
-    }
-    return answerArr;
-  }
   */
 };
-
-//Math.floor(Math.random() * sides) + modifier;
 
 /*
     <>
@@ -72,11 +50,10 @@ const RollDice = (props) => {
     </>
     */
 
-//useAmount, useSides, useModifier, amount, sides, modifier
 RollDice.propTypes = {
-  useAmount: PropTypes.PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
-  useSides: PropTypes.PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
-  useModifier: PropTypes.PropTypes.oneOfType([
+  setAmount: PropTypes.PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+  setSides: PropTypes.PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+  setModifier: PropTypes.PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.func,
   ]),
