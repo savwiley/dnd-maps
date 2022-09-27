@@ -9,3 +9,10 @@ export const DiceBox = styled.div`
   padding: 20px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
 `;
+
+export const Inputs = styled.div`
+  background: transparent;
+  input {
+    width: 20px;
+  }
+`;
