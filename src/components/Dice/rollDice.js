@@ -1,8 +1,38 @@
+import React from "react";
 
+const RollDice = (props) => {
+  const { useAmount, useSides, useModifier, amount, sides, modifier } = props;
 
-export const rollDice = (amount, sides, modifier) => {
+  return (
+    <>
+      <input
+        type="number"
+        id="amount"
+        min="1"
+        value={amount}
+        onChange={(e) => useAmount(e.target.value)}
+      />
+      d
+      <input
+        type="number"
+        id="sides"
+        min="2"
+        max="100"
+        value={sides}
+        onChange={(e) => useSides(e.target.value)}
+      />
+      +
+      <input
+        type="number"
+        id="modifier"
+        min="0"
+        value={modifier}
+        onChange={(e) => useModifier(e.target.value)}
+      />
+    </>
+  );
 
-  
+  /*
     console.log(`Number of Dice: ${amount}`);
     console.log(`Type of Dice: d${sides}`);
     console.log(`Modifier: ${modifier}`);
@@ -28,21 +58,17 @@ export const rollDice = (amount, sides, modifier) => {
     return answerArr;
   }
   */
-}
-   
-  
-  
-  //Math.floor(Math.random() * sides) + modifier;
-    
-    /*
+};
+
+//Math.floor(Math.random() * sides) + modifier;
+
+/*
     <>
       Number of Dice: ${amount}
       Type of Dice: d${sides}
       Modifier: ${modifier}
     </>
     */
-  
-
 
 //module.exports = rollDice;
-//export default rollDice;
+export default RollDice;
