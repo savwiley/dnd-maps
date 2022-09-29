@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import AnswerBox from "./AnswerBox";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDiceD20 } from '@fortawesome/free-solid-svg-icons'
 import { DiceBox, Inputs } from "./style";
 
 const Dice = () => {
@@ -41,7 +43,6 @@ const Dice = () => {
           type="number"
           id="modifier"
           min="0"
-          //negative modifiers?
           defaultValue={modifier}
           onBlur={(e) => setModifier(e.target.value)}
         />
@@ -55,6 +56,8 @@ const Dice = () => {
       </Inputs>
 
       <AnswerBox answer={answer} />
+
+      <FontAwesomeIcon icon={faDiceD20} className="icon" />
     </DiceBox>
   );
 };
