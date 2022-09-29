@@ -13,6 +13,6 @@ export const DiceBox = styled.div`
 export const Inputs = styled.div`
   background: transparent;
   input {
-    width: 20px;
+    width: 50px;
   }
 `;
