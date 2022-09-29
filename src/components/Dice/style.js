@@ -16,3 +16,8 @@ export const Inputs = styled.div`
     width: 50px;
   }
 `;
+
+export const Rolled = styled.div`
+  display: block;
+  padding: 2px;
+`;
