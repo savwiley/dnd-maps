@@ -9,18 +9,12 @@ const Dice = () => {
   const [modifier, setModifier] = useState(0);
 
   const roll = (amount, sides, modifier) => {
-    if (amount === 1) {
+    let answerArr = [];
+    for (let i = 0; i < amount; i++) {
       let rolled = Math.floor(Math.random() * sides) + 1 + Number(modifier);
-      setAnswer([`1d${sides}+${modifier} = ${rolled}`]);
-    } else {
-      let answerArr = [];
-      for (let i = 0; i < amount; i++) {
-        let rolled = Math.floor(Math.random() * sides) + 1 + Number(modifier);
-        answerArr.push(`${amount}d${sides}+${modifier} = ${rolled}`);
-      }
-      setAnswer(answerArr);
-      answerArr = [];
+      answerArr.push(`${amount}d${sides}+${modifier} = ${rolled}`);
     }
+    setAnswer(answerArr);
   }
 
   return (
@@ -47,6 +41,7 @@ const Dice = () => {
           type="number"
           id="modifier"
           min="0"
+          //negative modifiers?
           defaultValue={modifier}
           onBlur={(e) => setModifier(e.target.value)}
         />
