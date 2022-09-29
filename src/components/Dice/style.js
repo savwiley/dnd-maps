@@ -8,12 +8,49 @@ export const DiceBox = styled.div`
   height: 120px;
   padding: 20px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  overflow-x: auto;
+  overflow-y: hidden;
+  .icon {
+    position: absolute;
+    bottom: 5px;
+    left: 20px;
+    right: 90%;
+    font-size: 100px;
+    color: var(--lightAccent);
+    z-index: 0;
+  }
 `;
 
 export const Inputs = styled.div`
-  background: transparent;
+  position: relative;
+  z-index: 1;
   input {
+    margin: 0 3px;
+    padding: 2px;
+    background: var(--text);
+    border: 1px solid var(--background);
+    color: var(--background);
+  }
+  input:first-of-type {
+    margin-left: 0;
+  }
+  input[type="button"] {
+    margin-left: 10px;
     width: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  input[type="button"]:hover {
+    background: var(--background);
+    border-color: var(--text);
+    color: var(--text);
+  }
+  input[type="number"] {
+    width: 30px;
+  }
+  input[type="number"]:focus {
+    background: var(--lightText);
   }
 `;
 
@@ -28,4 +65,8 @@ export const DiceAnswers = styled.div`
   flex-wrap: wrap;
   height: 100%;
   align-content: baseline;
+  position: relative;
+  z-index: 1;
+  font-weight: bold;
+  cursor: default;
 `;
