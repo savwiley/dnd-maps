@@ -5,7 +5,7 @@ export const DiceBox = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  height: 200px;
+  height: 120px;
   padding: 20px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
 `;
@@ -19,5 +19,13 @@ export const Inputs = styled.div`
 
 export const Rolled = styled.div`
   display: block;
-  padding: 2px;
+  padding: 2px 50px 2px 0;
+`;
+
+export const DiceAnswers = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100%;
+  align-content: baseline;
 `;
