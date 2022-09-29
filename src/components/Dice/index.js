@@ -3,17 +3,23 @@ import AnswerBox from "./AnswerBox";
 import { DiceBox, Inputs } from "./style";
 
 const Dice = () => {
-  const [answer, setAnswer] = useState("rolling...");
-
-  let amount = 1;
-  let sides = 20;
-  let modifier = 0;
+  const [answer, setAnswer] = useState(["waiting..."]);
+  const [amount, setAmount] = useState(1);
+  const [sides, setSides] = useState(20);
+  const [modifier, setModifier] = useState(0);
 
   const roll = (amount, sides, modifier) => {
-    for (let i = 0; i < amount; i++) {
-      let rolled = Math.floor(Math.random() * sides) + 1 + modifier;
-      setAnswer(`1 d${sides} + ${modifier} = ${rolled}`);
-      console.log(answer);
+    if (amount === 1) {
+      let rolled = Math.floor(Math.random() * sides) + 1 + Number(modifier);
+      setAnswer([`1d${sides}+${modifier} = ${rolled}`]);
+    } else {
+      let answerArr = [];
+      for (let i = 0; i < amount; i++) {
+        let rolled = Math.floor(Math.random() * sides) + 1 + Number(modifier);
+        answerArr.push(`${amount}d${sides}+${modifier} = ${rolled}`);
+      }
+      setAnswer(answerArr);
+      answerArr = [];
     }
   }
 
@@ -25,7 +31,7 @@ const Dice = () => {
           id="amount"
           min="1"
           defaultValue={amount}
-          onBlur={(e) => amount = e.target.value}
+          onBlur={(e) => setAmount(e.target.value)}
         />
         d
         <input
@@ -34,7 +40,7 @@ const Dice = () => {
           min="2"
           max="100"
           defaultValue={sides}
-          onBlur={(e) => sides = e.target.value}
+          onBlur={(e) => setSides(e.target.value)}
         />
         +
         <input
@@ -42,7 +48,7 @@ const Dice = () => {
           id="modifier"
           min="0"
           defaultValue={modifier}
-          onBlur={(e) => modifier = e.target.value}
+          onBlur={(e) => setModifier(e.target.value)}
         />
 
         <input
