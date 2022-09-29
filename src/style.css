@@ -1,6 +1,8 @@
 :root {
   --background: #27242c;
   --text: #a3a3a3;
+  --lightAccent: #312f35;
+  --lightText: #c9c9c9;
 
   --font: Helvetica, sans-serif;
 }
