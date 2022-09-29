@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import AnswerBox from "./AnswerBox";
+//import AnswerBox from "./AnswerBox";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDiceD20 } from '@fortawesome/free-solid-svg-icons'
-import { DiceBox, Inputs } from "./style";
+import { DiceBox, Inputs, DiceAnswers, Rolled } from "./style";
 
 const Dice = () => {
   const [answer, setAnswer] = useState(["waiting..."]);
@@ -55,7 +55,11 @@ const Dice = () => {
         />
       </Inputs>
 
-      <AnswerBox answer={answer} />
+      <DiceAnswers>
+        {answer.map((a, i) => (
+          <Rolled key={i}>{a}</Rolled>
+        ))}
+      </DiceAnswers>
 
       <FontAwesomeIcon icon={faDiceD20} className="icon" />
     </DiceBox>
