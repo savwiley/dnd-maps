@@ -15,7 +15,7 @@ const Dice = () => {
       answerArr.push(`${amount}d${sides}+${modifier} = ${rolled}`);
     }
     setAnswer(answerArr);
-  }
+  };
 
   return (
     <DiceBox>
@@ -45,11 +45,12 @@ const Dice = () => {
           defaultValue={modifier}
           onBlur={(e) => setModifier(e.target.value)}
         />
-
         <input
           type="button"
           value="Roll!"
-          onClick={() => {roll(amount, sides, modifier)}}
+          onClick={() => {
+            roll(amount, sides, modifier);
+          }}
         />
       </Inputs>
 
