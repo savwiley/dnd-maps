@@ -10,6 +10,7 @@ const Dice = () => {
   const [amount, setAmount] = useState(1);
   const [sides, setSides] = useState(20);
   const [modifier, setModifier] = useState(0);
+  const [numbOfDice, setNumbOfDice] = useState(1);
 
   const roll = (amount, sides, modifier) => {
     let answerArr = [];
@@ -26,9 +27,9 @@ const Dice = () => {
   //put amounts/sides/modifiers into arrays & have two if statements
   //use buttons to add/remove text inputs as a component
 
-  return (
-    <DiceBox>
-      <Inputs>
+  const numbOfInputs = (numbOfDice) => {
+    for (let i = 0; i < numbOfDice; i++) {
+      return (
         <NumbInputs
           setAmount={setAmount}
           setSides={setSides}
@@ -37,11 +38,30 @@ const Dice = () => {
           sides={sides}
           modifier={modifier}
         />
+      )
+    }
+  }
+
+  return (
+    <DiceBox>
+      <Inputs>
+
+        {numbOfInputs(numbOfDice)}
+
         <input
           type="button"
           value="Roll!"
           onClick={() => {
             roll(amount, sides, modifier);
+          }}
+        />
+        <input
+          type="button"
+          value="+"
+          onClick={() => {
+            let newNumb = numbOfDice + 1;
+            setNumbOfDice(newNumb);
+            console.log(numbOfDice);
           }}
         />
       </Inputs>
