@@ -27,26 +27,21 @@ const Dice = () => {
   //put amounts/sides/modifiers into arrays & have two if statements
   //use buttons to add/remove text inputs as a component
 
-  const numbOfInputs = (numbOfDice) => {
-    for (let i = 0; i < numbOfDice; i++) {
-      return (
-        <NumbInputs
-          setAmount={setAmount}
-          setSides={setSides}
-          setModifier={setModifier}
-          amount={amount}
-          sides={sides}
-          modifier={modifier}
-        />
-      )
-    }
-  }
-
   return (
     <DiceBox>
       <Inputs>
 
-        {numbOfInputs(numbOfDice)}
+        {[...Array(numbOfDice)].map((e, i) =>
+          <NumbInputs
+            setAmount={setAmount}
+            setSides={setSides}
+            setModifier={setModifier}
+            amount={amount}
+            sides={sides}
+            modifier={modifier}
+            key={i}
+          />
+        )}
 
         <input
           type="button"
@@ -59,8 +54,7 @@ const Dice = () => {
           type="button"
           value="+"
           onClick={() => {
-            let newNumb = numbOfDice + 1;
-            setNumbOfDice(newNumb);
+            setNumbOfDice(numbOfDice + 1);
             console.log(numbOfDice);
           }}
         />
