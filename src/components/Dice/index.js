@@ -7,14 +7,18 @@ import { DiceBox, Inputs, DiceAnswers, RolledLI, MainAnswer } from "./style";
 const Dice = () => {
   const [answer, setAnswer] = useState([0]);
   const [rolled, setRolled] = useState(["waiting..."]);
-  const [amount, setAmount] = useState(1);
-  const [sides, setSides] = useState(20);
-  const [modifier, setModifier] = useState(0);
+  const [amount, setAmount] = useState([1]);
+  const [sides, setSides] = useState([20]);
+  const [modifier, setModifier] = useState([0]);
   const [numbOfDice, setNumbOfDice] = useState(1);
 
   const roll = (amount, sides, modifier) => {
     let answerArr = [];
     let rolledArr = [];
+
+    //amount, sides, & modifiers are in arrays already
+
+
     for (let i = 0; i < amount; i++) {
       let diceRoll = Math.floor(Math.random() * sides) + 1 + Number(modifier);
       rolledArr.push(`${amount}d${sides}+${modifier} = ${diceRoll}`);
