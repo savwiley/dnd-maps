@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDiceD20 } from '@fortawesome/free-solid-svg-icons'
+import NumbInputs from "./NumbInputs";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDiceD20 } from "@fortawesome/free-solid-svg-icons";
 import { DiceBox, Inputs, DiceAnswers, RolledLI, MainAnswer } from "./style";
 
 const Dice = () => {
@@ -22,32 +23,19 @@ const Dice = () => {
     setRolled(rolledArr);
   };
 
+  //put amounts/sides/modifiers into arrays & have two if statements
+  //use buttons to add/remove text inputs as a component
+
   return (
     <DiceBox>
       <Inputs>
-        <input
-          type="number"
-          id="amount"
-          min="1"
-          defaultValue={amount}
-          onBlur={(e) => setAmount(e.target.value)}
-        />
-        d
-        <input
-          type="number"
-          id="sides"
-          min="2"
-          max="100"
-          defaultValue={sides}
-          onBlur={(e) => setSides(e.target.value)}
-        />
-        +
-        <input
-          type="number"
-          id="modifier"
-          min="0"
-          defaultValue={modifier}
-          onBlur={(e) => setModifier(e.target.value)}
+        <NumbInputs
+          setAmount={setAmount}
+          setSides={setSides}
+          setModifier={setModifier}
+          amount={amount}
+          sides={sides}
+          modifier={modifier}
         />
         <input
           type="button"
@@ -64,9 +52,7 @@ const Dice = () => {
         ))}
       </DiceAnswers>
 
-      <MainAnswer>
-        {answer.reduce((partial, a) => partial + a, 0)}
-      </MainAnswer>
+      <MainAnswer>{answer.reduce((partial, a) => partial + a, 0)}</MainAnswer>
 
       <FontAwesomeIcon icon={faDiceD20} className="icon" />
     </DiceBox>
