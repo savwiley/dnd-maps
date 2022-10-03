@@ -54,7 +54,7 @@ export const Inputs = styled.div`
   }
 `;
 
-export const Rolled = styled.div`
+export const RolledLI = styled.div`
   display: block;
   padding: 2px 50px 2px 0;
 `;
@@ -69,4 +69,13 @@ export const DiceAnswers = styled.div`
   z-index: 1;
   font-weight: bold;
   cursor: default;
+`;
+
+export const MainAnswer = styled.div`
+  position: absolute;
+  bottom: 5px;
+  right: 20px;
+  left: 85%;
+  font-size: 120px;
+  z-index: 2;
 `;
