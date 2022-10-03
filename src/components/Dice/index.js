@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDiceD20 } from '@fortawesome/free-solid-svg-icons'
-import { DiceBox, Inputs, DiceAnswers, Rolled } from "./style";
+import { DiceBox, Inputs, DiceAnswers, RolledLI, MainAnswer } from "./style";
 
 const Dice = () => {
-  const [answer, setAnswer] = useState(["waiting..."]);
+  const [answer, setAnswer] = useState([0]);
+  const [rolled, setRolled] = useState(["waiting..."]);
   const [amount, setAmount] = useState(1);
   const [sides, setSides] = useState(20);
   const [modifier, setModifier] = useState(0);
 
   const roll = (amount, sides, modifier) => {
     let answerArr = [];
+    let rolledArr = [];
     for (let i = 0; i < amount; i++) {
-      let rolled = Math.floor(Math.random() * sides) + 1 + Number(modifier);
-      answerArr.push(`${amount}d${sides}+${modifier} = ${rolled}`);
+      let diceRoll = Math.floor(Math.random() * sides) + 1 + Number(modifier);
+      rolledArr.push(`${amount}d${sides}+${modifier} = ${diceRoll}`);
+      answerArr.push(diceRoll);
     }
     setAnswer(answerArr);
+    setRolled(rolledArr);
   };
 
   return (
@@ -55,10 +59,14 @@ const Dice = () => {
       </Inputs>
 
       <DiceAnswers>
-        {answer.map((a, i) => (
-          <Rolled key={i}>{a}</Rolled>
+        {rolled.map((a, i) => (
+          <RolledLI key={i}>{a}</RolledLI>
         ))}
       </DiceAnswers>
+
+      <MainAnswer>
+        {answer.reduce((partial, a) => partial + a, 0)}
+      </MainAnswer>
 
       <FontAwesomeIcon icon={faDiceD20} className="icon" />
     </DiceBox>
