@@ -6,6 +6,7 @@ const NumbInputs = (props) => {
 
   return (
     <>
+      (
       <input
         type="number"
         id="amount"
@@ -30,6 +31,7 @@ const NumbInputs = (props) => {
         defaultValue={modifier}
         onBlur={(e) => setModifier(e.target.value)}
       />
+      )
     </>
   );
 };
