@@ -7,35 +7,30 @@ import { DiceBox, Inputs, DiceAnswers, RolledLI, MainAnswer } from "./style";
 const Dice = () => {
   const [answer, setAnswer] = useState([0]);
   const [rolled, setRolled] = useState(["waiting..."]);
-  const [amount, setAmount] = useState([1]);
-  const [sides, setSides] = useState([20]);
-  const [modifier, setModifier] = useState([0]);
+  const [amount, setAmount] = useState([]);
+  const [sides, setSides] = useState([]);
+  const [modifier, setModifier] = useState([]);
   const [numbOfDice, setNumbOfDice] = useState(1);
 
   const roll = (amount, sides, modifier) => {
     let answerArr = [];
     let rolledArr = [];
-
-    //amount, sides, & modifiers are in arrays already
-
-
-    for (let i = 0; i < amount; i++) {
-      let diceRoll = Math.floor(Math.random() * sides) + 1 + Number(modifier);
-      rolledArr.push(`${amount}d${sides}+${modifier} = ${diceRoll}`);
-      answerArr.push(diceRoll);
+    for (let i = 0; i < amount.length; i++) {
+      for (let a = 0; a < amount[i]; a++) {
+        let diceRoll =
+          Math.floor(Math.random() * sides[i]) + 1 + Number(modifier[i]);
+        rolledArr.push(`${amount[i]}d${sides[i]}+${modifier[i]} = ${diceRoll}`);
+        answerArr.push(diceRoll);
+      }
     }
     setAnswer(answerArr);
     setRolled(rolledArr);
   };
 
-  //put amounts/sides/modifiers into arrays & have two if statements
-  //use buttons to add/remove text inputs as a component
-
   return (
     <DiceBox>
       <Inputs>
-
-        {[...Array(numbOfDice)].map((e, i) =>
+        {[...Array(numbOfDice)].map((e, i) => (
           <NumbInputs
             setAmount={setAmount}
             setSides={setSides}
@@ -44,14 +39,23 @@ const Dice = () => {
             sides={sides}
             modifier={modifier}
             key={i}
+            index={i}
           />
-        )}
+        ))}
 
         <input
           type="button"
           value="Roll!"
           onClick={() => {
             roll(amount, sides, modifier);
+            setNumbOfDice(1);
+            setAmount([]);
+            setSides([]);
+            setModifier([]);
+            document.querySelectorAll(".toClear").forEach((e) => {
+              e.value = "";
+              e.disabled = false;
+            });
           }}
         />
         <input
@@ -59,7 +63,29 @@ const Dice = () => {
           value="+"
           onClick={() => {
             setNumbOfDice(numbOfDice + 1);
-            console.log(numbOfDice);
+          }}
+        />
+        {numbOfDice > 1 ? (
+          <input
+            type="button"
+            value="-"
+            onClick={() => {
+              setNumbOfDice(numbOfDice - 1);
+            }}
+          />
+        ) : null}
+        <input
+          type="button"
+          value="Clear"
+          onClick={() => {
+            setNumbOfDice(1);
+            setAmount([]);
+            setSides([]);
+            setModifier([]);
+            document.querySelectorAll(".toClear").forEach((e) => {
+              e.value = "";
+              e.disabled = false;
+            });
           }}
         />
       </Inputs>
