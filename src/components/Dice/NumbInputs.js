@@ -12,6 +12,7 @@ const NumbInputs = (props) => {
         className="amount toClear"
         min="1"
         defaultValue={amount[index]}
+        placeholder="0"
         onBlur={(e) => 
           setAmount(prev => {
             const list = [...prev, e.target.value];
@@ -28,6 +29,7 @@ const NumbInputs = (props) => {
         min="2"
         max="100"
         defaultValue={sides[index]}
+        placeholder="20"
         onBlur={(e) => 
           setSides(prev => {
             const list = [...prev, e.target.value];
@@ -43,6 +45,7 @@ const NumbInputs = (props) => {
         className="modifier toClear"
         min="0"
         defaultValue={modifier[index]}
+        placeholder="0"
         onBlur={(e) => 
           setModifier(prev => {
             const list = [...prev, e.target.value];
