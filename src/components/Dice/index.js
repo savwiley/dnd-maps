@@ -17,9 +17,13 @@ const Dice = () => {
     let rolledArr = [];
     for (let i = 0; i < amount.length; i++) {
       for (let a = 0; a < amount[i]; a++) {
+        let side;
+        let mod;
+        sides[i] ? side = sides[i] : side = 20;
+        modifier[i] ? mod = modifier[i] : mod = 0;
         let diceRoll =
-          Math.floor(Math.random() * sides[i]) + 1 + Number(modifier[i]);
-        rolledArr.push(`${amount[i]}d${sides[i]}+${modifier[i]} = ${diceRoll}`);
+          Math.floor(Math.random() * side) + 1 + Number(mod);
+        rolledArr.push(`${amount[i]}d${side}+${mod} = ${diceRoll}`);
         answerArr.push(diceRoll);
       }
     }
@@ -30,6 +34,8 @@ const Dice = () => {
   return (
     <DiceBox>
       <Inputs>
+
+        {/*number inputs, repeated as needed*/}
         {[...Array(numbOfDice)].map((e, i) => (
           <NumbInputs
             setAmount={setAmount}
@@ -43,6 +49,7 @@ const Dice = () => {
           />
         ))}
 
+        {/*roll button*/}
         <input
           type="button"
           value="Roll!"
@@ -58,6 +65,8 @@ const Dice = () => {
             });
           }}
         />
+
+        {/*add inputs button*/}
         <input
           type="button"
           value="+"
@@ -65,6 +74,8 @@ const Dice = () => {
             setNumbOfDice(numbOfDice + 1);
           }}
         />
+
+        {/*subtract inputs button if there are more than 1 set*/}
         {numbOfDice > 1 ? (
           <input
             type="button"
@@ -79,6 +90,17 @@ const Dice = () => {
             }}
           />
         ) : null}
+
+        {/*roll 1d20*/}
+        <input
+          type="button"
+          value="Roll 1d20"
+          onClick={() => {
+            roll([1],[20],[0]);
+          }}
+        />
+
+        {/*reset everything*/}
         <input
           type="button"
           value="Reset"
@@ -95,13 +117,7 @@ const Dice = () => {
             });
           }}
         />
-        <input
-          type="button"
-          value="Roll 1d20"
-          onClick={() => {
-            roll([1],[20],[0]);
-          }}
-        />
+
       </Inputs>
 
       <DiceAnswers>
