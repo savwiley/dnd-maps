@@ -31,12 +31,17 @@ export const Inputs = styled.div`
     border: 1px solid var(--background);
     color: var(--background);
   }
+  input:disabled {
+    background: var(--background);
+    color: var(--text);
+    border-color: var(--text);
+  }
   input:first-of-type {
     margin-left: 0;
   }
   input[type="button"] {
     margin-left: 10px;
-    width: 50px;
+    min-width: 50px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.2s;
