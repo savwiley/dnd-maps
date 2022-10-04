@@ -2,45 +2,55 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const NumbInputs = (props) => {
-  const { setAmount, setSides, setModifier, amount, sides, modifier, key } = props;
-
-  //https://stackoverflow.com/questions/60257629/how-to-add-item-to-immutable-array-in-react-setstate-in-typescript
+  const { setAmount, setSides, setModifier, amount, sides, modifier, index } = props;
 
   return (
     <>
       (
       <input
         type="number"
-        id="amount"
+        className="amount toClear"
         min="1"
-        defaultValue={amount[key]}
-        onBlur={(e) => setAmount(prev => {
-          const list = [...prev, e.target.value]
-          return list;
-        })}
+        defaultValue={amount[index]}
+        onBlur={(e) => 
+          setAmount(prev => {
+            const list = [...prev, e.target.value];
+            e.target.disabled = true;
+            return list;
+          })
+        }
+        required 
       />
       d
       <input
         type="number"
-        id="sides"
+        className="sides toClear"
         min="2"
         max="100"
-        defaultValue={sides[key]}
-        onBlur={(e) => setSides(prev => {
-          const list = [...prev, e.target.value]
-          return list;
-        })}
+        defaultValue={sides[index]}
+        onBlur={(e) => 
+          setSides(prev => {
+            const list = [...prev, e.target.value];
+            e.target.disabled = true;
+            return list;
+          }
+        )}
+        required 
       />
       +
       <input
         type="number"
-        id="modifier"
+        className="modifier toClear"
         min="0"
-        defaultValue={modifier[key]}
-        onBlur={(e) => setModifier(prev => {
-          const list = [...prev, e.target.value]
-          return list;
-        })}
+        defaultValue={modifier[index]}
+        onBlur={(e) => 
+          setModifier(prev => {
+            const list = [...prev, e.target.value];
+            e.target.disabled = true;
+            return list;
+          }
+        )}
+        required 
       />
       )
     </>
@@ -57,6 +67,7 @@ NumbInputs.propTypes = {
   amount: PropTypes.PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   sides: PropTypes.PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   modifier: PropTypes.PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  index: PropTypes.PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
 };
 
 export default NumbInputs;
