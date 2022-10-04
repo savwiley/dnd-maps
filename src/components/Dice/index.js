@@ -70,22 +70,36 @@ const Dice = () => {
             type="button"
             value="-"
             onClick={() => {
+              if (amount.length === numbOfDice) {
+                setAmount([...amount.slice(0, -1)]);
+                setSides([...sides.slice(0, -1)]);
+                setModifier([...modifier.slice(0, -1)]);
+              }
               setNumbOfDice(numbOfDice - 1);
             }}
           />
         ) : null}
         <input
           type="button"
-          value="Clear"
+          value="Reset"
           onClick={() => {
             setNumbOfDice(1);
             setAmount([]);
             setSides([]);
             setModifier([]);
+            setRolled(["waiting..."]);
+            setAnswer([0]);
             document.querySelectorAll(".toClear").forEach((e) => {
               e.value = "";
               e.disabled = false;
             });
+          }}
+        />
+        <input
+          type="button"
+          value="Roll 1d20"
+          onClick={() => {
+            roll([1],[20],[0]);
           }}
         />
       </Inputs>
