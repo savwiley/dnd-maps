@@ -33,6 +33,7 @@ export const GridSpace = styled.div`
   width: 100%;
   height: 65vh;
   border: 1px solid var(--lightText);
+  overflow: hidden;
 `;
 
 export const Square = styled.div`
