@@ -37,13 +37,25 @@ const Grid = () => {
           document.querySelector("#number").value = "";
         }}
       />
+      <input
+        type="button"
+        value="Clear"
+        onClick={() => {
+          document.querySelectorAll(".square").forEach((e) => {
+            e.style.background = "transparent";
+          });
+        }}
+      />
 
       <GridSpace numbOfSquares={numbSq}>
-        {[...Array(numbSq * numbSq)].map((e, i) => (
+        {[...Array(numbSq * numbSq)].map((a, i) => (
           <Square
             className="square"
             id={i}
             key={i}
+            onClick={e => {
+              e.target.style.background = color;
+            }}
           ></Square>
         ))}
       </GridSpace>
