@@ -83,4 +83,5 @@ export const MainAnswer = styled.div`
   left: 85%;
   font-size: 120px;
   z-index: 2;
+  cursor: default;
 `;
