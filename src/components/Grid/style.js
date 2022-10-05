@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const GridBox = styled.div`
   margin: auto;
-  width: 60%;
+  width: 65vh;
   text-align: center;
   input {
-    margin: 5px 0;
+    margin: 5px 3px;
     padding: 2px;
     background: var(--text);
     border: 1px solid var(--background);
