@@ -10,10 +10,9 @@ const roll = (amount, sides, modifier) => {
     for (let a = 0; a < amount[i]; a++) {
       let side;
       let mod;
-      sides[i] ? side = sides[i] : side = 20;
-      modifier[i] ? mod = modifier[i] : mod = 0;
-      let diceRoll =
-        Math.floor(Math.random() * side) + 1 + Number(mod);
+      sides[i] ? (side = sides[i]) : (side = 20);
+      modifier[i] ? (mod = modifier[i]) : (mod = 0);
+      let diceRoll = Math.floor(Math.random() * side) + 1 + Number(mod);
       rolledArr.push(`${amount[i]}d${side}+${mod} = ${diceRoll}`);
       answerArr.push(diceRoll);
     }
@@ -30,13 +29,13 @@ const roll = (amount, sides, modifier) => {
       className="square"
       id={i}
       key={i}
-      onClick={e => {
+      onClick={(e) => {
         e.target.style.background = color;
       }}
-      onDragOver={e => {
+      onDragOver={(e) => {
         e.target.style.background = color;
       }}
-      onContextMenu={e => {
+      onContextMenu={(e) => {
         e.preventDefault();
         e.target.style.background = "transparent";
       }}
