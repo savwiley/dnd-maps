@@ -6,16 +6,14 @@ const Grid = () => {
   const [numb, setNumb] = useState(16);
   const [numbSq, setNumbSq] = useState(16);
 
-
   return (
     <GridBox>
-
       {/*change color*/}
-      <input 
+      <input
         type="color"
         id="color"
         value={color}
-        onChange={e => {
+        onChange={(e) => {
           setColor(e.target.value);
         }}
       />
@@ -29,6 +27,7 @@ const Grid = () => {
           setNumb(e.target.value);
         }}
       />
+
       <input
         type="button"
         value="Resize"
@@ -37,6 +36,8 @@ const Grid = () => {
           document.querySelector("#number").value = "";
         }}
       />
+
+      {/*cover grid in selected color*/}
       <input
         type="button"
         value="Cover"
@@ -46,6 +47,8 @@ const Grid = () => {
           });
         }}
       />
+
+      {/*clear grid*/}
       <input
         type="button"
         value="Clear"
@@ -62,20 +65,19 @@ const Grid = () => {
             className="square"
             id={i}
             key={i}
-            onClick={e => {
+            onClick={(e) => {
               e.target.style.background = color;
             }}
-            onDragOver={e => {
+            onDragOver={(e) => {
               e.target.style.background = color;
             }}
-            onContextMenu={e => {
+            onContextMenu={(e) => {
               e.preventDefault();
               e.target.style.background = "transparent";
             }}
           ></Square>
         ))}
       </GridSpace>
-
     </GridBox>
   );
 };

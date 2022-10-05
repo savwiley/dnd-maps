@@ -19,10 +19,9 @@ const Dice = () => {
       for (let a = 0; a < amount[i]; a++) {
         let side;
         let mod;
-        sides[i] ? side = sides[i] : side = 20;
-        modifier[i] ? mod = modifier[i] : mod = 0;
-        let diceRoll =
-          Math.floor(Math.random() * side) + 1 + Number(mod);
+        sides[i] ? (side = sides[i]) : (side = 20);
+        modifier[i] ? (mod = modifier[i]) : (mod = 0);
+        let diceRoll = Math.floor(Math.random() * side) + 1 + Number(mod);
         rolledArr.push(`${amount[i]}d${side}+${mod} = ${diceRoll}`);
         answerArr.push(diceRoll);
       }
@@ -34,7 +33,6 @@ const Dice = () => {
   return (
     <DiceBox>
       <Inputs>
-
         {/*number inputs, repeated as needed*/}
         {[...Array(numbOfDice)].map((e, i) => (
           <NumbInputs
@@ -96,7 +94,7 @@ const Dice = () => {
           type="button"
           value="Roll 1d20"
           onClick={() => {
-            roll([1],[20],[0]);
+            roll([1], [20], [0]);
           }}
         />
 
@@ -117,7 +115,6 @@ const Dice = () => {
             });
           }}
         />
-
       </Inputs>
 
       <DiceAnswers>

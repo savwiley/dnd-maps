@@ -28,8 +28,8 @@ export const GridBox = styled.div`
 
 export const GridSpace = styled.div`
   display: grid;
-  grid-template-columns: repeat(${props => props.numbOfSquares}, 1fr);
-  grid-template-rows: repeat(${props => props.numbOfSquares}, 1fr);
+  grid-template-columns: repeat(${(props) => props.numbOfSquares}, 1fr);
+  grid-template-rows: repeat(${(props) => props.numbOfSquares}, 1fr);
   width: 100%;
   height: 65vh;
   border: 1px solid var(--lightText);
