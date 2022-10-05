@@ -39,6 +39,15 @@ const Grid = () => {
       />
       <input
         type="button"
+        value="Cover"
+        onClick={() => {
+          document.querySelectorAll(".square").forEach((e) => {
+            e.style.background = color;
+          });
+        }}
+      />
+      <input
+        type="button"
         value="Clear"
         onClick={() => {
           document.querySelectorAll(".square").forEach((e) => {
@@ -55,6 +64,13 @@ const Grid = () => {
             key={i}
             onClick={e => {
               e.target.style.background = color;
+            }}
+            onDragOver={e => {
+              e.target.style.background = color;
+            }}
+            onContextMenu={e => {
+              e.preventDefault();
+              e.target.style.background = "transparent";
             }}
           ></Square>
         ))}
