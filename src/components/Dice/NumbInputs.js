@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const NumbInputs = (props) => {
-  const { setAmount, setSides, setModifier, amount, sides, modifier, index } = props;
+  const { setAmount, setSides, setModifier, amount, sides, modifier, index } =
+    props;
 
   return (
     <>
@@ -13,14 +14,13 @@ const NumbInputs = (props) => {
         min="1"
         defaultValue={amount[index]}
         placeholder="0"
-        onBlur={(e) => 
-          setAmount(prev => {
+        onBlur={(e) =>
+          setAmount((prev) => {
             const list = [...prev, e.target.value];
             e.target.disabled = true;
             return list;
           })
         }
-        required 
       />
       d
       <input
@@ -30,14 +30,13 @@ const NumbInputs = (props) => {
         max="100"
         defaultValue={sides[index]}
         placeholder="20"
-        onBlur={(e) => 
-          setSides(prev => {
+        onBlur={(e) =>
+          setSides((prev) => {
             const list = [...prev, e.target.value];
             e.target.disabled = true;
             return list;
-          }
-        )}
-        required 
+          })
+        }
       />
       +
       <input
@@ -46,14 +45,13 @@ const NumbInputs = (props) => {
         min="0"
         defaultValue={modifier[index]}
         placeholder="0"
-        onBlur={(e) => 
-          setModifier(prev => {
+        onBlur={(e) =>
+          setModifier((prev) => {
             const list = [...prev, e.target.value];
             e.target.disabled = true;
             return list;
-          }
-        )}
-        required 
+          })
+        }
       />
       )
     </>
