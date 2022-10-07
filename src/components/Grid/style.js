@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const GridBox = styled.div`
   margin: auto;
-  width: 65vh;
+  width: 83vh;
   text-align: center;
   input {
     margin: 5px 3px;
@@ -31,7 +31,7 @@ export const GridSpace = styled.div`
   grid-template-columns: repeat(${(props) => props.numbOfSquares}, 1fr);
   grid-template-rows: repeat(${(props) => props.numbOfSquares}, 1fr);
   width: 100%;
-  height: 65vh;
+  height: 83vh;
   border: 1px solid var(--lightText);
   overflow: hidden;
 `;
