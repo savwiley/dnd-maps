@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const DiceBox = styled.div`
+  background: var(--background);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -10,6 +11,7 @@ export const DiceBox = styled.div`
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
   overflow-x: auto;
   overflow-y: hidden;
+  z-index: 2;
   .icon {
     position: absolute;
     bottom: 5px;
@@ -17,6 +19,19 @@ export const DiceBox = styled.div`
     right: 90%;
     font-size: 100px;
     color: var(--lightAccent);
+    z-index: 0;
+  }
+  .iconButton {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    font-size: 30px;
+    color: var(--text);
+    background: var(--lightAccent);
+    padding: 5px;
+    border-radius: 50px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
     z-index: 0;
   }
 `;
