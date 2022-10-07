@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import NumbInputs from "./NumbInputs";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiceD20 } from "@fortawesome/free-solid-svg-icons";
-import { DiceBox, Inputs, DiceAnswers, RolledLI, MainAnswer } from "./style";
+import { faDiceD20, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { DiceBox, Inputs, DiceAnswers, RolledLI, MainAnswer, ChangingIcon } from "./style";
 
 const Dice = () => {
   const [answer, setAnswer] = useState([0]);
@@ -11,6 +11,7 @@ const Dice = () => {
   const [sides, setSides] = useState([]);
   const [modifier, setModifier] = useState([]);
   const [numbOfDice, setNumbOfDice] = useState(1);
+  const [diceOpen, setDiceOpen] = useState(false);
 
   const roll = (amount, sides, modifier) => {
     let answerArr = [];
@@ -31,105 +32,115 @@ const Dice = () => {
   };
 
   return (
-    <DiceBox>
-
-      <FontAwesomeIcon icon={faDiceD20} className="iconButton" />
-
-      <Inputs>
-        {/*number inputs, repeated as needed*/}
-        {[...Array(numbOfDice)].map((e, i) => (
-          <NumbInputs
-            setAmount={setAmount}
-            setSides={setSides}
-            setModifier={setModifier}
-            amount={amount}
-            sides={sides}
-            modifier={modifier}
-            key={i}
-            index={i}
-          />
-        ))}
-
-        {/*roll button*/}
-        <input
-          type="button"
-          value="Roll!"
+    <>
+      <ChangingIcon changeTo={diceOpen ? "170px" : "10px"}>
+        <FontAwesomeIcon 
+          icon={diceOpen ? faXmark : faDiceD20} 
+          className="iconButton" 
           onClick={() => {
-            roll(amount, sides, modifier);
-            setNumbOfDice(1);
-            setAmount([]);
-            setSides([]);
-            setModifier([]);
-            document.querySelectorAll(".toClear").forEach((e) => {
-              e.value = "";
-              e.disabled = false;
-            });
+            diceOpen ? setDiceOpen(false) : setDiceOpen(true);
           }}
         />
+      </ChangingIcon>
 
-        {/*add inputs button*/}
-        <input
-          type="button"
-          value="+"
-          onClick={() => {
-            setNumbOfDice(numbOfDice + 1);
-          }}
-        />
+      <DiceBox lift={diceOpen ? "0" : "-180px"}>
 
-        {/*subtract inputs button if there are more than 1 set*/}
-        {numbOfDice > 1 ? (
+        <Inputs>
+          {/*number inputs, repeated as needed*/}
+          {[...Array(numbOfDice)].map((e, i) => (
+            <NumbInputs
+              setAmount={setAmount}
+              setSides={setSides}
+              setModifier={setModifier}
+              amount={amount}
+              sides={sides}
+              modifier={modifier}
+              key={i}
+              index={i}
+            />
+          ))}
+
+          {/*roll button*/}
           <input
             type="button"
-            value="-"
+            value="Roll!"
             onClick={() => {
-              if (amount.length === numbOfDice) {
-                setAmount([...amount.slice(0, -1)]);
-                setSides([...sides.slice(0, -1)]);
-                setModifier([...modifier.slice(0, -1)]);
-              }
-              setNumbOfDice(numbOfDice - 1);
+              roll(amount, sides, modifier);
+              setNumbOfDice(1);
+              setAmount([]);
+              setSides([]);
+              setModifier([]);
+              document.querySelectorAll(".toClear").forEach((e) => {
+                e.value = "";
+                e.disabled = false;
+              });
             }}
           />
-        ) : null}
 
-        {/*roll 1d20*/}
-        <input
-          type="button"
-          value="Roll 1d20"
-          onClick={() => {
-            roll([1], [20], [0]);
-          }}
-        />
+          {/*add inputs button*/}
+          <input
+            type="button"
+            value="+"
+            onClick={() => {
+              setNumbOfDice(numbOfDice + 1);
+            }}
+          />
 
-        {/*reset everything*/}
-        <input
-          type="button"
-          value="Reset"
-          onClick={() => {
-            setNumbOfDice(1);
-            setAmount([]);
-            setSides([]);
-            setModifier([]);
-            setRolled(["waiting..."]);
-            setAnswer([0]);
-            document.querySelectorAll(".toClear").forEach((e) => {
-              e.value = "";
-              e.disabled = false;
-            });
-          }}
-        />
-      </Inputs>
+          {/*subtract inputs button if there are more than 1 set*/}
+          {numbOfDice > 1 ? (
+            <input
+              type="button"
+              value="-"
+              onClick={() => {
+                if (amount.length === numbOfDice) {
+                  setAmount([...amount.slice(0, -1)]);
+                  setSides([...sides.slice(0, -1)]);
+                  setModifier([...modifier.slice(0, -1)]);
+                }
+                setNumbOfDice(numbOfDice - 1);
+              }}
+            />
+          ) : null}
 
-      <DiceAnswers>
-        {rolled.map((a, i) => (
-          <RolledLI key={i}>{a}</RolledLI>
-        ))}
-      </DiceAnswers>
+          {/*roll 1d20*/}
+          <input
+            type="button"
+            value="Roll 1d20"
+            onClick={() => {
+              roll([1], [20], [0]);
+            }}
+          />
 
-      <MainAnswer>{answer.reduce((partial, a) => partial + a, 0)}</MainAnswer>
+          {/*reset everything*/}
+          <input
+            type="button"
+            value="Reset"
+            onClick={() => {
+              setNumbOfDice(1);
+              setAmount([]);
+              setSides([]);
+              setModifier([]);
+              setRolled(["waiting..."]);
+              setAnswer([0]);
+              document.querySelectorAll(".toClear").forEach((e) => {
+                e.value = "";
+                e.disabled = false;
+              });
+            }}
+          />
+        </Inputs>
 
-      <FontAwesomeIcon icon={faDiceD20} className="icon" />
-    </DiceBox>
+        <DiceAnswers>
+          {rolled.map((a, i) => (
+            <RolledLI key={i}>{a}</RolledLI>
+          ))}
+        </DiceAnswers>
+
+        <MainAnswer>{answer.reduce((partial, a) => partial + a, 0)}</MainAnswer>
+
+        <FontAwesomeIcon icon={faDiceD20} className="icon" />
+      </DiceBox>
+    </>
   );
 };
 
