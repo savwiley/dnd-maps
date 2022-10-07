@@ -1,9 +1,27 @@
 import styled from "styled-components";
 
+export const ChangingIcon = styled.div`
+  position: fixed;
+  bottom: ${(props) => props.changeTo};
+  left: 10px;
+  transition: all 0.5s;
+  .iconButton {
+    color: var(--text);
+    background: var(--lightAccent);
+    height: 25px;
+    width: 25px;
+    padding: 5px;
+    border-radius: 12px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    z-index: 0;
+  }
+`;
+
 export const DiceBox = styled.div`
   background: var(--background);
   position: fixed;
-  bottom: 0;
+  bottom: ${(props) => props.lift};
   left: 0;
   right: 0;
   height: 120px;
@@ -12,6 +30,7 @@ export const DiceBox = styled.div`
   overflow-x: auto;
   overflow-y: hidden;
   z-index: 2;
+  transition: all 0.5s;
   .icon {
     position: absolute;
     bottom: 5px;
@@ -19,19 +38,6 @@ export const DiceBox = styled.div`
     right: 90%;
     font-size: 100px;
     color: var(--lightAccent);
-    z-index: 0;
-  }
-  .iconButton {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    font-size: 30px;
-    color: var(--text);
-    background: var(--lightAccent);
-    padding: 5px;
-    border-radius: 50px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
-    cursor: pointer;
     z-index: 0;
   }
 `;
