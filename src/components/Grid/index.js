@@ -40,7 +40,7 @@ const Grid = () => {
       {/*cover grid in selected color*/}
       <input
         type="button"
-        value="Cover"
+        value="Fill"
         onClick={() => {
           document.querySelectorAll(".square").forEach((e) => {
             e.style.background = color;
