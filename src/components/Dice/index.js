@@ -32,6 +32,9 @@ const Dice = () => {
 
   return (
     <DiceBox>
+
+      <FontAwesomeIcon icon={faDiceD20} className="iconButton" />
+
       <Inputs>
         {/*number inputs, repeated as needed*/}
         {[...Array(numbOfDice)].map((e, i) => (
