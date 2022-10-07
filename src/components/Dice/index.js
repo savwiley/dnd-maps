@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import NumbInputs from "./NumbInputs";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiceD20, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { DiceBox, Inputs, DiceAnswers, RolledLI, MainAnswer, ChangingIcon } from "./style";
+import {
+  DiceBox,
+  Inputs,
+  DiceAnswers,
+  RolledLI,
+  MainAnswer,
+  ChangingIcon,
+} from "./style";
 
 const Dice = () => {
   const [answer, setAnswer] = useState([0]);
@@ -33,18 +40,19 @@ const Dice = () => {
 
   return (
     <>
+      {/*button to raise and lower dice roller*/}
       <ChangingIcon changeTo={diceOpen ? "170px" : "10px"}>
-        <FontAwesomeIcon 
-          icon={diceOpen ? faXmark : faDiceD20} 
-          className="iconButton" 
+        <FontAwesomeIcon
+          icon={diceOpen ? faXmark : faDiceD20}
+          className="iconButton"
           onClick={() => {
             diceOpen ? setDiceOpen(false) : setDiceOpen(true);
           }}
         />
       </ChangingIcon>
 
+      {/*dice roller container*/}
       <DiceBox lift={diceOpen ? "0" : "-180px"}>
-
         <Inputs>
           {/*number inputs, repeated as needed*/}
           {[...Array(numbOfDice)].map((e, i) => (
@@ -130,14 +138,17 @@ const Dice = () => {
           />
         </Inputs>
 
+        {/*list of all rolls*/}
         <DiceAnswers>
           {rolled.map((a, i) => (
             <RolledLI key={i}>{a}</RolledLI>
           ))}
         </DiceAnswers>
 
+        {/*sum of all rolls*/}
         <MainAnswer>{answer.reduce((partial, a) => partial + a, 0)}</MainAnswer>
 
+        {/*decoration*/}
         <FontAwesomeIcon icon={faDiceD20} className="icon" />
       </DiceBox>
     </>
