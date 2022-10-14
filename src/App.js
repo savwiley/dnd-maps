@@ -7,8 +7,8 @@ function App() {
   return (
     <div>
       <Protagonists />
-      <Grid />
       <Antagonists />
+      <Grid />
       <Dice />
     </div>
   );
