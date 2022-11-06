@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Protags, Antags, Input } from "./style";
+import { Chars, Input } from "./style";
 
-export const Protagonists = () => {
+const Characters = () => {
   const [name, setName] = useState();
   const [armor, setArmor] = useState();
 
   return (
-    <Protags>
+    <Chars>
       <Input>
         <input
           type="text"
@@ -32,42 +32,8 @@ export const Protagonists = () => {
           }}
         />
       </Input>
-    </Protags>
+    </Chars>
   )
 };
 
-
-export const Antagonists = () => {
-  const [name, setName] = useState();
-  const [armor, setArmor] = useState();
-
-  return (
-    <Antags>
-      <Input>
-        <input
-          type="text"
-          placeholder="Name"
-          className="antClear"
-          onBlur={(e) => {
-            setName(e.target.value);
-          }}
-        />
-        <input
-          type="text"
-          placeholder="Armor"
-          className="antClear"
-          onBlur={(e) => {
-            setArmor(e.target.value);
-          }}
-        />
-        <input
-          type="button"
-          value="Create Antag"
-          onClick={() => {
-            document.querySelector(".antClear").value = "";
-          }}
-        />
-      </Input>
-    </Antags>
-  )
-};
+export default Characters;
