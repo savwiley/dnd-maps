@@ -1,20 +1,11 @@
 import styled from "styled-components";
 
-export const Protags = styled.div`
+export const Chars = styled.div`
   display: inline-block;
   float: left;
   width: 25vw;
   height: auto;
   text-align: left;
-  padding: 4px;
-`;
-
-export const Antags = styled.div`
-  display: inline-block;
-  float: right;
-  width: 25vw;
-  height: auto;
-  text-align: right;
   padding: 4px;
 `;
 
