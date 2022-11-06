@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const GridBox = styled.div`
-  margin: auto;
-  width: 83vh;
+  position: fixed;
+  right: 40px;
+  width: 100vh;
   text-align: center;
   input {
     margin: 5px 3px;
@@ -37,7 +38,7 @@ export const GridSpace = styled.div`
 `;
 
 export const Square = styled.div`
-  border: 1px solid var(--lightAccent);
+  border: 1px solid var(--background);
   cursor: pointer;
   width: 100%;
   height: 100%;
