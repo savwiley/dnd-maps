@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CharModules from "./CharModules";
 import { Chars, Input } from "./style";
 
 const Characters = () => {
@@ -54,7 +55,15 @@ const Characters = () => {
           type="button"
           value="Create Protag"
           onClick={() => {
-            setChars({...chars, [name]: {Armor: armor, MaxHP: hp, CurrentHP: hp, Initiative: init}});
+            setChars({
+              ...chars,
+              [name]: {
+                Armor: armor,
+                MaxHP: hp,
+                CurrentHP: hp,
+                Initiative: init,
+              },
+            });
             document.querySelector(".proClear").value = "";
             setName("");
             setHP(0);
@@ -64,13 +73,20 @@ const Characters = () => {
         />
       </Input>
 
-      {/*something to put the character modules*/
-        chars.forEach((e) => {
-          <charModules />
+      {
+        /*something to put the character modules*/
+        Object.entries(char).map((e) => {
+          <CharModules
+            name={e[0]}
+            armor={e[1].Armor}
+            hp={e[1].MaxHP}
+            curHp={e[1].CurrentHP}
+            init={e[1].Initiative}
+          />;
         })
       }
     </Chars>
-  )
+  );
 };
 
 export default Characters;
