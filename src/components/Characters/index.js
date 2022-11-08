@@ -52,6 +52,8 @@ const Characters = () => {
           }}
         />
       </Input>
+
+      {/*something to put the character modules*/}
     </Chars>
   )
 };
