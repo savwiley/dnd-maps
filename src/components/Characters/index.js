@@ -2,11 +2,18 @@ import React, { useState } from "react";
 import { Chars, Input } from "./style";
 
 const Characters = () => {
-  const [name, setName] = useState();
-  const [hp, setHP] = useState();
-  const [armor, setArmor] = useState();
-  const [init, setInit] = useState();
-  const [newChar, setNewChar] = useState([]);
+  const [name, setName] = useState("");
+  const [hp, setHP] = useState(0);
+  const [armor, setArmor] = useState(0);
+  const [init, setInit] = useState(0);
+  const [chars, setChars] = useState({});
+
+  /**newChar array contains one character's stats
+   * create function to (when newChar changes) add more modules
+   * perhaps have one master object with all characters each with their own unique index
+   * the init determines the index
+   * make a new master object every time (1) a char is added (2) a char is edited (3) init on any changes
+   */
 
   return (
     <Chars>
@@ -47,13 +54,21 @@ const Characters = () => {
           type="button"
           value="Create Protag"
           onClick={() => {
-            setNewChar([name, hp, armor, init]);
+            setChars({...chars, [name]: {Armor: armor, MaxHP: hp, CurrentHP: hp, Initiative: init}});
             document.querySelector(".proClear").value = "";
+            setName("");
+            setHP(0);
+            setArmor(0);
+            setInit(0);
           }}
         />
       </Input>
 
-      {/*something to put the character modules*/}
+      {/*something to put the character modules*/
+        chars.forEach((e) => {
+          <charModules />
+        })
+      }
     </Chars>
   )
 };
