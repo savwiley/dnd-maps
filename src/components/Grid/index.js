@@ -5,10 +5,21 @@ const Grid = () => {
   const [color, setColor] = useState("#000000");
   const [numb, setNumb] = useState(16);
   const [numbSq, setNumbSq] = useState(16);
+  const [grid, setGrid] = useState(true);
 
   return (
     <GridBox>
       <div id="row">
+        {/*toggle grid*/}
+        <input
+          type="button"
+          id="toggle"
+          value={grid ? "Grid ON" : "Grid OFF"}
+          onClick={() => {
+            grid ? setGrid(false) : setGrid(true);
+          }}
+        />
+
         {/*change color*/}
         <input
           type="color"
@@ -25,8 +36,6 @@ const Grid = () => {
           id="file"
           accept=".jpg,.jpeg,.png,.tif,.tiff,.bmp,.gif"
           onChange={(e) => {
-            console.log(e);
-            console.log(e.target.files);
             const gridBG = document.querySelector("#grid");
             const image = e.target.files[0];
             gridBG.style.background = `center/contain url(${URL.createObjectURL(image)}) no-repeat`;
@@ -81,6 +90,7 @@ const Grid = () => {
             className="square"
             id={i}
             key={i}
+            gridToggle={grid}
             onClick={(e) => {
               e.target.style.background = color;
             }}
