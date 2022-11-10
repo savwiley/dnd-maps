@@ -13,7 +13,7 @@ const Characters = () => {
   return (
     <Chars>
       <Input>
-        <form onSubmit="return false">
+        <form onSubmit={() => "return false"}>
           <input
             type="text"
             placeholder="Name"
@@ -32,7 +32,7 @@ const Characters = () => {
             className="proClear"
             min="0"
             onBlur={(e) => {
-              if (e.target.value >= 0) {
+              if (e.target.valueAsNumber >= 0) {
                 setCurHP(e.target.value);
               }
             }}
@@ -44,7 +44,7 @@ const Characters = () => {
             className="proClear"
             min={curHp}
             onBlur={(e) => {
-              if (e.target.value >= 1 && e.target.value >= curHp) {
+              if (e.target.valueAsNumber >= 1 && e.target.valueAsNumber >= curHp) {
                 setHP(e.target.value);
               } else {
                 alert("Your Max HP cannot be less than your Current HP.");
@@ -59,7 +59,7 @@ const Characters = () => {
             className="proClear"
             min="0"
             onBlur={(e) => {
-              if (e.target.value >= 0) {
+              if (e.target.valueAsNumber >= 0) {
                 setArmor(e.target.value);
               }
             }}
@@ -71,7 +71,7 @@ const Characters = () => {
             className="proClear"
             min="0"
             onBlur={(e) => {
-              if (e.target.value >= 0) {
+              if (e.target.valueAsNumber >= 0) {
                 setInit(e.target.value);
               }
             }}
