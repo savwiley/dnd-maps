@@ -9,13 +9,6 @@ const Characters = () => {
   const [init, setInit] = useState(0);
   const [chars, setChars] = useState({});
 
-  /**newChar array contains one character's stats
-   * create function to (when newChar changes) add more modules
-   * perhaps have one master object with all characters each with their own unique index
-   * the init determines the index
-   * make a new master object every time (1) a char is added (2) a char is edited (3) init on any changes
-   */
-
   return (
     <Chars>
       <Input>
@@ -57,14 +50,15 @@ const Characters = () => {
           onClick={() => {
             setChars({
               ...chars,
-              [name]: {
+              [init]: {
                 Armor: armor,
                 MaxHP: hp,
                 CurrentHP: hp,
-                Initiative: init,
+                Name: name,
               },
             });
-            document.querySelector(".proClear").value = "";
+            const arr = document.querySelectorAll(".proClear");
+            arr.forEach((e) => {e.value = ""});
             setName("");
             setHP(0);
             setArmor(0);
@@ -75,14 +69,15 @@ const Characters = () => {
 
       {
         /*something to put the character modules*/
-        Object.entries(char).map((e) => {
-          <CharModules
-            name={e[0]}
+        Object.entries(chars).map((e) => {
+          return (<CharModules
+            name={e[1].Name}
             armor={e[1].Armor}
             hp={e[1].MaxHP}
             curHp={e[1].CurrentHP}
-            init={e[1].Initiative}
-          />;
+            init={e[0]}
+            key={e[0]}
+          />);
         })
       }
     </Chars>
