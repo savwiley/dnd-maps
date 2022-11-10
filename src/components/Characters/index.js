@@ -13,74 +13,99 @@ const Characters = () => {
   return (
     <Chars>
       <Input>
-        <input
-          type="text"
-          placeholder="Name"
-          id="nameInput"
-          className="proClear"
-          onBlur={(e) => {
-            setName(e.target.value);
-          }}
-        />
-        <input
-          type="number"
-          placeholder="Current HP"
-          id="curHPInput"
-          className="proClear"
-          onBlur={(e) => {
-            setCurHP(e.target.value);
-          }}
-        />
-        <input
-          type="number"
-          placeholder="Max HP"
-          id="maxHPInput"
-          className="proClear"
-          onBlur={(e) => {
-            setHP(e.target.value);
-          }}
-        />
-        <input
-          type="number"
-          placeholder="Armor"
-          id="armorInput"
-          className="proClear"
-          onBlur={(e) => {
-            setArmor(e.target.value);
-          }}
-        />
-        <input
-          type="number"
-          placeholder="Initiative"
-          id="initInput"
-          className="proClear"
-          onBlur={(e) => {
-            setInit(e.target.value);
-          }}
-        />
-        <input
-          type="button"
-          value="Create Protag"
-          onClick={() => {
-            setChars({
-              ...chars,
-              [init]: {
-                Armor: armor,
-                MaxHP: hp,
-                CurrentHP: curHp,
-                Name: name,
-              },
-            });
-            const arr = document.querySelectorAll(".proClear");
-            arr.forEach((e) => {
-              e.value = "";
-            });
-            setName("");
-            setHP(0);
-            setArmor(0);
-            setInit(0);
-          }}
-        />
+        <form onSubmit="return false">
+          <input
+            type="text"
+            placeholder="Name"
+            id="nameInput"
+            className="proClear"
+            onBlur={(e) => {
+              if (e.target.value !== "") {
+                setName(e.target.value);
+              }
+            }}
+          />
+          <input
+            type="number"
+            placeholder="Current HP"
+            id="curHPInput"
+            className="proClear"
+            min="0"
+            onBlur={(e) => {
+              if (e.target.value >= 0) {
+                setCurHP(e.target.value);
+              }
+            }}
+          />
+          <input
+            type="number"
+            placeholder="Max HP"
+            id="maxHPInput"
+            className="proClear"
+            min={curHp}
+            onBlur={(e) => {
+              if (e.target.value >= 1 && e.target.value >= curHp) {
+                setHP(e.target.value);
+              } else {
+                alert("Your Max HP cannot be less than your Current HP.");
+                e.target.value = "";
+              }
+            }}
+          />
+          <input
+            type="number"
+            placeholder="Armor"
+            id="armorInput"
+            className="proClear"
+            min="0"
+            onBlur={(e) => {
+              if (e.target.value >= 0) {
+                setArmor(e.target.value);
+              }
+            }}
+          />
+          <input
+            type="number"
+            placeholder="Initiative"
+            id="initInput"
+            className="proClear"
+            min="0"
+            onBlur={(e) => {
+              if (e.target.value >= 0) {
+                setInit(e.target.value);
+              }
+            }}
+          />
+          <input
+            type="submit"
+            value="Create"
+            onClick={(e) => {
+              if (init && armor && hp && curHp && name) {
+                setChars({
+                  ...chars,
+                  [init]: {
+                    Armor: armor,
+                    MaxHP: hp,
+                    CurrentHP: curHp,
+                    Name: name,
+                  },
+                });
+                const arr = document.querySelectorAll(".proClear");
+                arr.forEach((e) => {
+                  e.value = "";
+                });
+                setName("");
+                setHP(0);
+                setArmor(0);
+                setInit(0);
+                e.preventDefault();
+              } else {
+                alert("Please fill in all fields.");
+                e.preventDefault();
+              }
+            }}
+          />
+        </form>
       </Input>
 
       <CharSpace>
