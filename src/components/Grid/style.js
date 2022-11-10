@@ -14,6 +14,7 @@ export const GridBox = styled.div`
     color: var(--background);
     font-weight: bold;
     min-width: 50px;
+    width: 30px;
   }
   #row {
     display: flex;
