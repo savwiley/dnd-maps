@@ -10,7 +10,9 @@ export const Chars = styled.div`
 `;
 
 export const Input = styled.div`
+  padding: 10px 0 0 10px;
   input {
+    margin-right: 5px;
     padding: 2px;
     background: var(--text);
     border: 1px solid var(--background);
@@ -36,6 +38,7 @@ export const CharModule = styled.div`
   margin: 10px 5px;
   padding: 5px 10px;
   font-weight: bold;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
   .name {
     font-size: 20px;
     font-weight: bold;
