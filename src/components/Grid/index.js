@@ -18,6 +18,13 @@ const Grid = () => {
         }}
       />
 
+      {/*upload image*/}
+      <input
+        type="file"
+        id="file"
+        accept=".jpg,.jpeg,.png,.tif,.tiff,.bmp,.gif"
+      />
+
       {/*change grid size*/}
       <input
         type="number"
