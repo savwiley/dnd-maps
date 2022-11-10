@@ -5,6 +5,7 @@ import { Chars, Input, CharSpace } from "./style";
 const Characters = () => {
   const [name, setName] = useState("");
   const [hp, setHP] = useState(0);
+  const [curHp, setCurHP] = useState(0);
   const [armor, setArmor] = useState(0);
   const [init, setInit] = useState(0);
   const [chars, setChars] = useState({});
@@ -15,6 +16,7 @@ const Characters = () => {
         <input
           type="text"
           placeholder="Name"
+          id="nameInput"
           className="proClear"
           onBlur={(e) => {
             setName(e.target.value);
@@ -22,7 +24,17 @@ const Characters = () => {
         />
         <input
           type="number"
+          placeholder="Current HP"
+          id="curHPInput"
+          className="proClear"
+          onBlur={(e) => {
+            setCurHP(e.target.value);
+          }}
+        />
+        <input
+          type="number"
           placeholder="Max HP"
+          id="maxHPInput"
           className="proClear"
           onBlur={(e) => {
             setHP(e.target.value);
@@ -31,6 +43,7 @@ const Characters = () => {
         <input
           type="number"
           placeholder="Armor"
+          id="armorInput"
           className="proClear"
           onBlur={(e) => {
             setArmor(e.target.value);
@@ -39,6 +52,7 @@ const Characters = () => {
         <input
           type="number"
           placeholder="Initiative"
+          id="initInput"
           className="proClear"
           onBlur={(e) => {
             setInit(e.target.value);
@@ -53,7 +67,7 @@ const Characters = () => {
               [init]: {
                 Armor: armor,
                 MaxHP: hp,
-                CurrentHP: hp,
+                CurrentHP: curHp,
                 Name: name,
               },
             });
