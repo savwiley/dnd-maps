@@ -29,9 +29,15 @@ export const Input = styled.div`
   }
 `;
 
+export const CharSpace = styled.div`
+  width: 30vw;
+  height: 90vh;
+  overflow-y: scroll;
+`;
+
 export const CharModule = styled.div`
   display: block;
-  width: 100%;
+  width: 90%;
   border-radius: 10px;
   background: var(--lightAccent);
   height: 70px;
@@ -67,5 +73,9 @@ export const CharModule = styled.div`
   }
   .initiative {
     float: right;
+  }
+  :hover {
+    transform: scale(1.01);
+    cursor: pointer;
   }
 `;
