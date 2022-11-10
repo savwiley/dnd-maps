@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Chars = styled.div`
   display: inline-block;
   float: left;
-  width: 25vw;
+  width: 30vw;
   height: auto;
   text-align: left;
   padding: 4px;
@@ -61,6 +61,7 @@ export const CharModule = styled.div`
     border: 1px solid var(--background);
     background: var(--background);
     margin: 30px 0 10px;
+    overflow: hidden;
   }
   .hpActual {
     width: ${(props) => props.HP}%;
@@ -77,5 +78,39 @@ export const CharModule = styled.div`
   :hover {
     transform: scale(1.01);
     cursor: pointer;
+  }
+`;
+
+export const Exit = styled.div`
+  position: relative;
+  float: right;
+  bottom: 60px;
+  left: 60px;
+  background: var(--text);
+  color: var(--background);
+  opacity: 0.3;
+  font-size: 18px;
+  border-radius: 50px;
+  padding: 5px 8px 3px;
+  text-align: center;
+  :hover {
+    opacity: 0.8;
+  }
+`;
+
+export const Edit = styled.div`
+  position: relative;
+  float: right;
+  top: 10px;
+  left: 89px;
+  background: var(--text);
+  color: var(--background);
+  opacity: 0.3;
+  font-size: 18px;
+  border-radius: 50px; 
+  padding: 5px 6px 4px;
+  text-align: center;
+  :hover {
+    opacity: 0.8;
   }
 `;
