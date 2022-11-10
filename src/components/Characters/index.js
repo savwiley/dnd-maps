@@ -58,7 +58,9 @@ const Characters = () => {
               },
             });
             const arr = document.querySelectorAll(".proClear");
-            arr.forEach((e) => {e.value = ""});
+            arr.forEach((e) => {
+              e.value = "";
+            });
             setName("");
             setHP(0);
             setArmor(0);
@@ -70,14 +72,16 @@ const Characters = () => {
       {
         /*something to put the character modules*/
         Object.entries(chars).map((e) => {
-          return (<CharModules
-            name={e[1].Name}
-            armor={e[1].Armor}
-            hp={e[1].MaxHP}
-            curHp={e[1].CurrentHP}
-            init={e[0]}
-            key={e[0]}
-          />);
+          return (
+            <CharModules
+              name={e[1].Name}
+              armor={e[1].Armor}
+              hp={e[1].MaxHP}
+              curHp={e[1].CurrentHP}
+              init={e[0]}
+              key={e[0]}
+            />
+          );
         })
       }
     </Chars>

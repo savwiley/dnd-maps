@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { CharModule } from "./style";
 
 const CharModules = (props) => {
@@ -11,14 +11,16 @@ const CharModules = (props) => {
     const decimal = total / hp;
     const percent = decimal * 100;
     setNewHP(percent);
-  }
+  };
 
   return (
     <CharModule HP={newHP}>
       {/*name*/}
       <div className="name">{name}</div>
       {/*HP*/}
-      <div className="hp">{curHp} / {hp}</div>
+      <div className="hp">
+        {curHp} / {hp}
+      </div>
       {/*HP scale*/}
       <div className="hpHolder">
         <div className="hpActual"></div>
