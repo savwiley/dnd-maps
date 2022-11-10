@@ -35,6 +35,42 @@ export const CharSpace = styled.div`
   overflow-y: scroll;
 `;
 
+export const Exit = styled.div`
+  display: none;
+  position: relative;
+  float: right;
+  bottom: 60px;
+  left: 60px;
+  background: var(--text);
+  color: var(--background);
+  opacity: 0.3;
+  font-size: 18px;
+  border-radius: 50px;
+  padding: 5px 8px 3px;
+  text-align: center;
+  :hover {
+    opacity: 0.8;
+  }
+`;
+
+export const Edit = styled.div`
+  display: none;
+  position: relative;
+  float: right;
+  top: 10px;
+  left: 89px;
+  background: var(--text);
+  color: var(--background);
+  opacity: 0.3;
+  font-size: 18px;
+  border-radius: 50px; 
+  padding: 5px 6px 4px;
+  text-align: center;
+  :hover {
+    opacity: 0.8;
+  }
+`;
+
 export const CharModule = styled.div`
   display: block;
   width: 90%;
@@ -79,38 +115,10 @@ export const CharModule = styled.div`
     transform: scale(1.01);
     cursor: pointer;
   }
-`;
-
-export const Exit = styled.div`
-  position: relative;
-  float: right;
-  bottom: 60px;
-  left: 60px;
-  background: var(--text);
-  color: var(--background);
-  opacity: 0.3;
-  font-size: 18px;
-  border-radius: 50px;
-  padding: 5px 8px 3px;
-  text-align: center;
-  :hover {
-    opacity: 0.8;
+  &:hover ${Exit} {
+    display: inline;
   }
-`;
-
-export const Edit = styled.div`
-  position: relative;
-  float: right;
-  top: 10px;
-  left: 89px;
-  background: var(--text);
-  color: var(--background);
-  opacity: 0.3;
-  font-size: 18px;
-  border-radius: 50px; 
-  padding: 5px 6px 4px;
-  text-align: center;
-  :hover {
-    opacity: 0.8;
+  &:hover ${Edit} {
+    display: inline;
   }
 `;
