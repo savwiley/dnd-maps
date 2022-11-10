@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CharModules from "./CharModules";
-import { Chars, Input } from "./style";
+import { Chars, Input, CharSpace } from "./style";
 
 const Characters = () => {
   const [name, setName] = useState("");
@@ -69,21 +69,23 @@ const Characters = () => {
         />
       </Input>
 
-      {
-        /*something to put the character modules*/
-        Object.entries(chars).map((e) => {
-          return (
-            <CharModules
-              name={e[1].Name}
-              armor={e[1].Armor}
-              hp={e[1].MaxHP}
-              curHp={e[1].CurrentHP}
-              init={e[0]}
-              key={e[0]}
-            />
-          );
-        })
-      }
+      <CharSpace>
+        {
+          /*something to put the character modules*/
+          Object.entries(chars).map((e) => {
+            return (
+              <CharModules
+                name={e[1].Name}
+                armor={e[1].Armor}
+                hp={e[1].MaxHP}
+                curHp={e[1].CurrentHP}
+                init={e[0]}
+                key={e[0]}
+              />
+            );
+          })
+        }
+      </CharSpace>
     </Chars>
   );
 };
