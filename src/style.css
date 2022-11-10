@@ -17,3 +17,11 @@ body {
   color: var(--text);
   font-family: var(--font);
 }
+
+::-webkit-scrollbar {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--lightAccent);
+}
