@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { CharModule } from "./style";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark, faPencil } from "@fortawesome/free-solid-svg-icons";
+import { CharModule, Exit, Edit } from "./style";
 
 const CharModules = (props) => {
   const { name, hp, curHp, armor, init } = props;
   const [newHP, setNewHP] = useState(100);
+
+  const cName = document.getElementById("nameInput");
+  const cCurHP = document.getElementById("curHPInput");
+  const cHP = document.getElementById("maxHPInput");
+  const cArmor = document.getElementById("armorInput");
+  const cInit = document.getElementById("initInput");
 
   //finds percent of new HP
   useEffect(() => {
@@ -13,29 +21,26 @@ const CharModules = (props) => {
   },[curHp, hp]);
 
   return (
-    <CharModule HP={newHP}
+    <CharModule HP={newHP} className={name}
+    /*
       onClick={() => {
-        const cName = document.getElementById("nameInput");
         cName.value = name;
         cName.focus();
         cName.blur();
-        const cCurHP = document.getElementById("curHPInput");
         cCurHP.value = curHp;
         cCurHP.focus();
         cCurHP.blur();
-        const cHP = document.getElementById("maxHPInput");
         cHP.value = hp;
         cHP.focus();
         cHP.blur();
-        const cArmor = document.getElementById("armorInput");
         cArmor.value = armor;
         cArmor.focus();
         cArmor.blur();
-        const cInit = document.getElementById("initInput");
         cInit.value = init;
         cInit.focus();
         cInit.blur();
       }}
+      */
     >
       {/*name*/}
       <div className="name">{name}</div>
@@ -51,6 +56,40 @@ const CharModules = (props) => {
       <div className="armor">AC {armor}</div>
       {/*initiative*/}
       <div className="initiative">INIT {init}</div>
+
+      <Exit>
+        <FontAwesomeIcon
+          icon={faXmark}
+          className="iconButton"
+          onClick={() => {
+            document.querySelector(`.${name}`).style.display = "none";
+          }}
+        />
+      </Exit>
+
+      <Edit>
+        <FontAwesomeIcon
+          icon={faPencil}
+          className="iconButton"
+          onClick={() => {
+            cName.value = name;
+            cName.focus();
+            cName.blur();
+            cCurHP.value = curHp;
+            cCurHP.focus();
+            cCurHP.blur();
+            cHP.value = hp;
+            cHP.focus();
+            cHP.blur();
+            cArmor.value = armor;
+            cArmor.focus();
+            cArmor.blur();
+            cInit.value = init;
+            cInit.focus();
+            cInit.blur();
+          }}
+        />
+      </Edit>
     </CharModule>
   );
 };
@@ -63,9 +102,5 @@ export default CharModules;
 
 
 /**
- * - make sure all inputs are filled
- * - make sure current HP doesn't exceed max HP
- * - make sure init is never less than 1
- * - fix spacing for inputs/button
  * - add delete
  */
