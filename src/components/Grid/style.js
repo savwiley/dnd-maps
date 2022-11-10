@@ -14,11 +14,18 @@ export const GridBox = styled.div`
     color: var(--background);
     font-weight: bold;
     min-width: 50px;
-    width: 30px;
   }
-  input[type="color"] {
-    display: block;
+  #row {
+    display: flex;
+    justify-content: center;
     margin: 10px auto 0;
+    input {
+      margin-right: 5px;
+    }
+  }
+  input[type="file"] {
+    width: 87px;
+    cursor: pointer;
   }
   input:hover {
     background: var(--background);
@@ -33,7 +40,6 @@ export const GridSpace = styled.div`
   grid-template-rows: repeat(${(props) => props.numbOfSquares}, 1fr);
   width: 100%;
   height: 83vh;
-  border: 1px solid var(--lightText);
   overflow: hidden;
 `;
 
