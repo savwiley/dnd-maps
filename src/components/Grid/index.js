@@ -8,22 +8,31 @@ const Grid = () => {
 
   return (
     <GridBox>
-      {/*change color*/}
-      <input
-        type="color"
-        id="color"
-        value={color}
-        onChange={(e) => {
-          setColor(e.target.value);
-        }}
-      />
+      <div id="row">
+        {/*change color*/}
+        <input
+          type="color"
+          id="color"
+          value={color}
+          onChange={(e) => {
+            setColor(e.target.value);
+          }}
+        />
 
-      {/*upload image*/}
-      <input
-        type="file"
-        id="file"
-        accept=".jpg,.jpeg,.png,.tif,.tiff,.bmp,.gif"
-      />
+        {/*upload image*/}
+        <input
+          type="file"
+          id="file"
+          accept=".jpg,.jpeg,.png,.tif,.tiff,.bmp,.gif"
+          onChange={(e) => {
+            console.log(e);
+            console.log(e.target.files);
+            const gridBG = document.querySelector("#grid");
+            const image = e.target.files[0];
+            gridBG.style.background = `center/contain url(${URL.createObjectURL(image)}) no-repeat`;
+          }}
+        />
+      </div>
 
       {/*change grid size*/}
       <input
@@ -66,7 +75,7 @@ const Grid = () => {
         }}
       />
 
-      <GridSpace numbOfSquares={numbSq}>
+      <GridSpace id="grid" numbOfSquares={numbSq}>
         {[...Array(numbSq * numbSq)].map((a, i) => (
           <Square
             className="square"
