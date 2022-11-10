@@ -23,6 +23,9 @@ export const GridBox = styled.div`
     input {
       margin-right: 5px;
     }
+    #toggle {
+      width: 70px;
+    }
   }
   input[type="file"] {
     width: 87px;
@@ -45,7 +48,7 @@ export const GridSpace = styled.div`
 `;
 
 export const Square = styled.div`
-  border: 1px solid var(--background);
+  border: 1px solid ${(props) => props.gridToggle ? "var(--background)" : "transparent"};
   cursor: pointer;
   width: 100%;
   height: 100%;
