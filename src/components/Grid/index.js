@@ -17,6 +17,9 @@ const Grid = () => {
           value={grid ? "Grid ON" : "Grid OFF"}
           onClick={() => {
             grid ? setGrid(false) : setGrid(true);
+            document.querySelectorAll(".square").forEach((e) => {
+              e.style.background = "transparent";
+            });
           }}
         />
 
