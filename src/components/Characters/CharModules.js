@@ -4,7 +4,7 @@ import { faXmark, faPencil } from "@fortawesome/free-solid-svg-icons";
 import { CharModule, Exit, Edit } from "./style";
 
 const CharModules = (props) => {
-  const { name, hp, curHp, armor, init, color } = props;
+  const { name, hp, curHp, armor, init, color, setColor } = props;
   const [newHP, setNewHP] = useState(100);
 
   const cName = document.getElementById("nameInput");
@@ -22,7 +22,7 @@ const CharModules = (props) => {
   }, [curHp, hp]);
 
   return (
-    <CharModule newHP={newHP} className={name}>
+    <CharModule newHP={newHP} className={`${name}-${init}`}>
       <div className="name">{name}</div>
       <div className="hp">
         {curHp} / {hp}
@@ -38,7 +38,7 @@ const CharModules = (props) => {
           icon={faXmark}
           className="iconButton"
           onClick={() => {
-            const elem = document.querySelectorAll(`.${name}`);
+            const elem = document.querySelectorAll(`.${name}-${init}`);
             elem.forEach((e) => {
               e.style.display = "none";
             });
@@ -66,6 +66,7 @@ const CharModules = (props) => {
             cInit.value = init;
             cInit.focus();
             cInit.blur();
+            setColor(color);
             cColor.value = color;
           }}
         />
