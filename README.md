@@ -12,6 +12,7 @@ Wiki is incoming.
 * Allow shape change of markers.
 * Show direction character is facing on marker.
 * Improve marker dragging.
+* Create markers without characters.
 * Add style to characters.
   * Consider adding a background icon with the same color as the marker.
 * Improve readability on character inputs.
