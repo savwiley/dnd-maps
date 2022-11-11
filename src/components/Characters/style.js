@@ -66,7 +66,7 @@ export const Edit = styled.div`
   color: var(--background);
   opacity: 0.3;
   font-size: 18px;
-  border-radius: 50px; 
+  border-radius: 50px;
   padding: 5px 6px 4px;
   text-align: center;
   :hover {
@@ -135,7 +135,8 @@ export const Mark = styled.div`
   min-width: 80px;
   border: 2px solid #000;
   color: #000;
-  text-shadow: 0 0 5px rgba(255,255,255), 0 0 8px rgba(255,255,255), 0 0 10px rgba(255,255,255);
+  text-shadow: 0 0 5px rgba(255, 255, 255), 0 0 8px rgba(255, 255, 255),
+    0 0 10px rgba(255, 255, 255);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
   text-align: center;
   cursor: move;

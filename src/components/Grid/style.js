@@ -48,7 +48,8 @@ export const GridSpace = styled.div`
 `;
 
 export const Square = styled.div`
-  border: 1px solid ${(props) => props.gridToggle ? "var(--background)" : "transparent"};
+  border: 1px solid
+    ${(props) => (props.gridToggle ? "var(--background)" : "transparent")};
   cursor: pointer;
   width: 100%;
   height: 100%;

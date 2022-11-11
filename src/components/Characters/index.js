@@ -46,7 +46,10 @@ const Characters = () => {
             className="proClear"
             min={curHp}
             onBlur={(e) => {
-              if (e.target.valueAsNumber >= 1 && e.target.valueAsNumber >= curHp) {
+              if (
+                e.target.valueAsNumber >= 1 &&
+                e.target.valueAsNumber >= curHp
+              ) {
                 setHP(e.target.value);
               } else {
                 alert("Your Max HP cannot be less than your Current HP.");
@@ -120,23 +123,19 @@ const Characters = () => {
 
       <CharSpace>
         {Object.entries(chars).map((e) => {
-            return (
-              <div key={e[0]}>
-                <CharModules
-                  name={e[1].Name}
-                  armor={e[1].Armor}
-                  hp={e[1].MaxHP}
-                  curHp={e[1].CurrentHP}
-                  init={e[0]}
-                />
-                <Marker
-                  name={e[1].Name}
-                  color={e[1].Color}
-                />
-              </div>
-            );
-          })
-        }
+          return (
+            <div key={e[0]}>
+              <CharModules
+                name={e[1].Name}
+                armor={e[1].Armor}
+                hp={e[1].MaxHP}
+                curHp={e[1].CurrentHP}
+                init={e[0]}
+              />
+              <Marker name={e[1].Name} color={e[1].Color} />
+            </div>
+          );
+        })}
       </CharSpace>
     </Chars>
   );

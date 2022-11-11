@@ -12,7 +12,11 @@ const Marker = (props) => {
   const [moving, setMoving] = useState(false);
 
   return (
-    <Mark top={top} left={left} color={color} className={name} 
+    <Mark
+      top={top}
+      left={left}
+      color={color}
+      className={name}
       onMouseDown={(e) => {
         e = e || window.event;
         e.preventDefault();
@@ -39,16 +43,7 @@ const Marker = (props) => {
     >
       {name}
     </Mark>
-  )
+  );
 };
 
 export default Marker;
-
-
-
-
-
-
-/**
- * - https://www.w3schools.com/howto/howto_js_draggable.asp
- */

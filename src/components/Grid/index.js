@@ -41,7 +41,9 @@ const Grid = () => {
           onChange={(e) => {
             const gridBG = document.querySelector("#grid");
             const image = e.target.files[0];
-            gridBG.style.background = `center/contain url(${URL.createObjectURL(image)}) no-repeat`;
+            gridBG.style.background = `center/contain url(${URL.createObjectURL(
+              image
+            )}) no-repeat`;
           }}
         />
       </div>

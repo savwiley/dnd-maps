@@ -18,7 +18,7 @@ const CharModules = (props) => {
     const decimal = curHp / hp;
     const percent = decimal * 100;
     setNewHP(percent);
-  },[curHp, hp]);
+  }, [curHp, hp]);
 
   return (
     <CharModule newHP={newHP} className={name}>
@@ -43,7 +43,9 @@ const CharModules = (props) => {
           className="iconButton"
           onClick={() => {
             const elem = document.querySelectorAll(`.${name}`);
-            elem.forEach((e) => {e.style.display = "none"} );
+            elem.forEach((e) => {
+              e.style.display = "none";
+            });
           }}
         />
       </Exit>
