@@ -11,6 +11,9 @@ export const Chars = styled.div`
 
 export const Input = styled.div`
   padding: 10px 0 0 10px;
+  form {
+    display: flex;
+  }
   input {
     margin-right: 5px;
     padding: 2px;
