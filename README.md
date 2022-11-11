@@ -6,6 +6,19 @@ This app will include a dynamic grid that can be colored in. Squares will be int
 
 Wiki is incoming.
 
+## To-Do List
+
+* Highlight markers when characters are hovered over & vice versa.
+* Allow shape change of markers.
+* Show direction character is facing on marker.
+* Improve marker dragging.
+* Add style to characters.
+  * Consider adding a background icon with the same color as the marker.
+* Improve readability on character inputs.
+  * Even just title/hover effects.
+  * Consider installing React-Tooltip.
+* Add option to remove grid image.
+
 ```
 const roll = (amount, sides, modifier) => {
   let answerArr = [];
