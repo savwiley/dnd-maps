@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CharModules from "./CharModules";
+import Marker from "./Markers";
 import { Chars, Input, CharSpace } from "./style";
 
 const Characters = () => {
@@ -109,18 +110,22 @@ const Characters = () => {
       </Input>
 
       <CharSpace>
-        {
-          /*something to put the character modules*/
-          Object.entries(chars).map((e) => {
+        {Object.entries(chars).map((e) => {
             return (
-              <CharModules
-                name={e[1].Name}
-                armor={e[1].Armor}
-                hp={e[1].MaxHP}
-                curHp={e[1].CurrentHP}
-                init={e[0]}
-                key={e[0]}
-              />
+              <>
+                <CharModules
+                  name={e[1].Name}
+                  armor={e[1].Armor}
+                  hp={e[1].MaxHP}
+                  curHp={e[1].CurrentHP}
+                  init={e[0]}
+                  key={e[0]}
+                />
+                <Marker
+                  name={e[1].Name}
+                  key={e[0]}
+                />
+              </>
             );
           })
         }
