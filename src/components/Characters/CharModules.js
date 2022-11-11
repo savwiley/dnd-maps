@@ -21,7 +21,7 @@ const CharModules = (props) => {
   },[curHp, hp]);
 
   return (
-    <CharModule HP={newHP} className={name}>
+    <CharModule newHP={newHP} className={name}>
       {/*name*/}
       <div className="name">{name}</div>
       {/*HP*/}
