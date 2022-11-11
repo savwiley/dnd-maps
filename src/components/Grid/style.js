@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const GridBox = styled.div`
   position: fixed;
   right: 40px;
-  width: 100vh;
+  width: 130vh;
   text-align: center;
   input {
     margin: 5px 3px;
