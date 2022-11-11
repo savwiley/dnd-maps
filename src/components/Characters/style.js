@@ -131,8 +131,8 @@ export const Mark = styled.div`
   position: absolute;
   top: ${(props) => props.top}px;
   left: ${(props) => props.left}px;
-  padding: 30px 4px;
-  min-width: 80px;
+  padding: 10px 4px;
+  min-width: 40px;
   border: 2px solid #000;
   color: #000;
   text-shadow: 0 0 5px rgba(255, 255, 255), 0 0 8px rgba(255, 255, 255),
