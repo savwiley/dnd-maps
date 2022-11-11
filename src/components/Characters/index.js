@@ -9,6 +9,7 @@ const Characters = () => {
   const [curHp, setCurHP] = useState(0);
   const [armor, setArmor] = useState(0);
   const [init, setInit] = useState(0);
+  const [color, setColor] = useState("#FFFFFF");
   const [chars, setChars] = useState({});
 
   return (
@@ -78,6 +79,13 @@ const Characters = () => {
             }}
           />
           <input
+            type="color"
+            id="colorInput"
+            onChange={(e) => {
+              setColor(e.target.value);
+            }}
+          />
+          <input
             type="submit"
             value="Create"
             onClick={(e) => {
@@ -89,6 +97,7 @@ const Characters = () => {
                     MaxHP: hp,
                     CurrentHP: curHp,
                     Name: name,
+                    Color: color,
                   },
                 });
                 const arr = document.querySelectorAll(".proClear");
@@ -122,6 +131,7 @@ const Characters = () => {
                 />
                 <Marker
                   name={e[1].Name}
+                  color={e[1].Color}
                 />
               </div>
             );
