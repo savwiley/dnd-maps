@@ -25,3 +25,15 @@ body {
 ::-webkit-scrollbar-thumb {
   background: var(--lightAccent);
 }
+
+.github {
+  position: fixed;
+  bottom: 5px;
+  right: 10px;
+  font-size: 33px;
+  color: var(--text);
+}
+
+.github:hover {
+  color: var(--lightText);
+}
