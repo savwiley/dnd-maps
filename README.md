@@ -2,6 +2,10 @@
 
 This app will include a dynamic grid that can be colored in. Squares will be interactive to hold characters/objects/etc with interactive stats, and a built in dice roller.
 
+[Test me here!](https://savwiley.github.io/dnd-maps/)
+
+Wiki is incoming.
+
 ```
 const roll = (amount, sides, modifier) => {
   let answerArr = [];
