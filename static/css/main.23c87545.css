@@ -1,2 +1,0 @@
-:root{--background:#22272e;--text:#768390;--lightAccent:#2c343f;--lightText:#adbac7;--font:Helvetica,sans-serif}*{margin:0;padding:0}body{background:#22272e;background:var(--background);color:#768390;color:var(--text);font-family:Helvetica,sans-serif;font-family:var(--font)}::-webkit-scrollbar{background:#22272e;background:var(--background)}::-webkit-scrollbar-thumb{background:#2c343f;background:var(--lightAccent)}
-/*# sourceMappingURL=main.23c87545.css.map*/
