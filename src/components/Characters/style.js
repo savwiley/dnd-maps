@@ -100,7 +100,7 @@ export const CharModule = styled.div`
     overflow: hidden;
   }
   .hpActual {
-    width: ${(props) => props.HP}%;
+    width: ${(props) => props.newHP}%;
     height: 5px;
     background: var(--lightText);
     border-radius: 5px;
@@ -121,4 +121,15 @@ export const CharModule = styled.div`
   &:hover ${Edit} {
     display: inline;
   }
+`;
+
+export const Mark = styled.div`
+  background: pink;
+  position: absolute;
+  top: ${(props) => props.top}px;
+  left: ${(props) => props.left}px;
+  padding: 4px;
+  border: 2px solid #000;
+  cursor: move;
+  z-index: 9;
 `;
