@@ -42,7 +42,8 @@ const CharModules = (props) => {
           icon={faXmark}
           className="iconButton"
           onClick={() => {
-            document.querySelector(`.${name}`).style.display = "none";
+            const elem = document.querySelectorAll(`.${name}`);
+            elem.forEach((e) => {e.style.display = "none"} );
           }}
         />
       </Exit>
