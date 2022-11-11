@@ -112,20 +112,18 @@ const Characters = () => {
       <CharSpace>
         {Object.entries(chars).map((e) => {
             return (
-              <>
+              <div key={e[0]}>
                 <CharModules
                   name={e[1].Name}
                   armor={e[1].Armor}
                   hp={e[1].MaxHP}
                   curHp={e[1].CurrentHP}
                   init={e[0]}
-                  key={e[0]}
                 />
                 <Marker
                   name={e[1].Name}
-                  key={e[0]}
                 />
-              </>
+              </div>
             );
           })
         }
