@@ -4,7 +4,7 @@ import { faXmark, faPencil } from "@fortawesome/free-solid-svg-icons";
 import { CharModule, Exit, Edit } from "./style";
 
 const CharModules = (props) => {
-  const { name, hp, curHp, armor, init } = props;
+  const { name, hp, curHp, armor, init, color } = props;
   const [newHP, setNewHP] = useState(100);
 
   const cName = document.getElementById("nameInput");
@@ -12,6 +12,7 @@ const CharModules = (props) => {
   const cHP = document.getElementById("maxHPInput");
   const cArmor = document.getElementById("armorInput");
   const cInit = document.getElementById("initInput");
+  const cColor = document.getElementById("colorInput");
 
   //finds percent of new HP
   useEffect(() => {
@@ -22,19 +23,14 @@ const CharModules = (props) => {
 
   return (
     <CharModule newHP={newHP} className={name}>
-      {/*name*/}
       <div className="name">{name}</div>
-      {/*HP*/}
       <div className="hp">
         {curHp} / {hp}
       </div>
-      {/*HP scale*/}
       <div className="hpHolder">
         <div className="hpActual"></div>
       </div>
-      {/*armor*/}
       <div className="armor">AC {armor}</div>
-      {/*initiative*/}
       <div className="initiative">INIT {init}</div>
 
       <Exit>
@@ -70,6 +66,7 @@ const CharModules = (props) => {
             cInit.value = init;
             cInit.focus();
             cInit.blur();
+            cColor.value = color;
           }}
         />
       </Edit>

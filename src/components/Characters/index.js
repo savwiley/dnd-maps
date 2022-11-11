@@ -111,6 +111,7 @@ const Characters = () => {
                 setHP(0);
                 setArmor(0);
                 setInit(0);
+                setColor("#FFFFFF");
                 e.preventDefault();
               } else {
                 alert("Please fill in all fields.");
@@ -131,6 +132,7 @@ const Characters = () => {
                 hp={e[1].MaxHP}
                 curHp={e[1].CurrentHP}
                 init={e[0]}
+                color={e[1].Color}
               />
               <Marker name={e[1].Name} color={e[1].Color} />
             </div>
