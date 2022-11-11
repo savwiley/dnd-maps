@@ -21,27 +21,7 @@ const CharModules = (props) => {
   },[curHp, hp]);
 
   return (
-    <CharModule HP={newHP} className={name}
-    /*
-      onClick={() => {
-        cName.value = name;
-        cName.focus();
-        cName.blur();
-        cCurHP.value = curHp;
-        cCurHP.focus();
-        cCurHP.blur();
-        cHP.value = hp;
-        cHP.focus();
-        cHP.blur();
-        cArmor.value = armor;
-        cArmor.focus();
-        cArmor.blur();
-        cInit.value = init;
-        cInit.focus();
-        cInit.blur();
-      }}
-      */
-    >
+    <CharModule HP={newHP} className={name}>
       {/*name*/}
       <div className="name">{name}</div>
       {/*HP*/}
@@ -95,12 +75,3 @@ const CharModules = (props) => {
 };
 
 export default CharModules;
-
-
-
-
-
-
-/**
- * - add delete
- */
