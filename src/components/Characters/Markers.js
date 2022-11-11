@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Mark } from "./style";
 
 const Marker = (props) => {
-  const { name, color } = props;
+  const { name, color, init } = props;
   const [pos1, setPos1] = useState(0);
   const [pos2, setPos2] = useState(0);
   const [pos3, setPos3] = useState(0);
@@ -16,7 +16,7 @@ const Marker = (props) => {
       top={top}
       left={left}
       color={color}
-      className={name}
+      className={`${name}-${init}`}
       onMouseDown={(e) => {
         e = e || window.event;
         e.preventDefault();
