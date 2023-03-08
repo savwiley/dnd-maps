@@ -42,7 +42,7 @@ export const Exit = styled.div`
   display: none;
   position: relative;
   left: 20px;
-  background: var(--text);
+  background: #8c2b2b;
   color: var(--background);
   opacity: 0.3;
   font-size: 18px;
