@@ -41,9 +41,7 @@ export const CharSpace = styled.div`
 export const Exit = styled.div`
   display: none;
   position: relative;
-  float: right;
-  bottom: 60px;
-  left: 60px;
+  left: 20px;
   background: var(--text);
   color: var(--background);
   opacity: 0.3;
@@ -59,13 +57,11 @@ export const Exit = styled.div`
 export const Edit = styled.div`
   display: none;
   position: relative;
-  float: right;
-  top: 10px;
-  left: 89px;
+  left: 10px;
   background: var(--text);
   color: var(--background);
   opacity: 0.3;
-  font-size: 18px;
+  font-size: 17px;
   border-radius: 50px;
   padding: 5px 6px 4px;
   text-align: center;
@@ -77,7 +73,8 @@ export const Edit = styled.div`
 export const CharModule = styled.div`
   display: block;
   width: 90%;
-  border-radius: 10px;
+  border-radius: 3px;
+  border-left: 2px solid ${(props) => props.color};
   background: var(--lightAccent);
   height: 70px;
   margin: 10px 5px;
@@ -135,8 +132,7 @@ export const Mark = styled.div`
   min-width: 40px;
   border: 2px solid #000;
   color: #000;
-  text-shadow: 0 0 5px rgba(255, 255, 255), 0 0 8px rgba(255, 255, 255),
-    0 0 10px rgba(255, 255, 255);
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
   text-align: center;
   cursor: move;

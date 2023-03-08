@@ -22,7 +22,7 @@ const CharModules = (props) => {
   }, [curHp, hp]);
 
   return (
-    <CharModule newHP={newHP} className={`${name}-${init}`}>
+    <CharModule newHP={newHP} color={color} className={`${name}-${init}`}>
       <div className="name">{name}</div>
       <div className="hp">
         {curHp} / {hp}
@@ -32,19 +32,6 @@ const CharModules = (props) => {
       </div>
       <div className="armor">AC {armor}</div>
       <div className="initiative">INIT {init}</div>
-
-      <Exit>
-        <FontAwesomeIcon
-          icon={faXmark}
-          className="iconButton"
-          onClick={() => {
-            const elem = document.querySelectorAll(`.${name}-${init}`);
-            elem.forEach((e) => {
-              e.style.display = "none";
-            });
-          }}
-        />
-      </Exit>
 
       <Edit>
         <FontAwesomeIcon
@@ -71,6 +58,19 @@ const CharModules = (props) => {
           }}
         />
       </Edit>
+
+      <Exit>
+        <FontAwesomeIcon
+          icon={faXmark}
+          className="iconButton"
+          onClick={() => {
+            const elem = document.querySelectorAll(`.${name}-${init}`);
+            elem.forEach((e) => {
+              e.style.display = "none";
+            });
+          }}
+        />
+      </Exit>
     </CharModule>
   );
 };
