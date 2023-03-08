@@ -86,16 +86,26 @@ export const CharModule = styled.div`
     font-weight: bold;
     float: left;
   }
-  .changeHP {
-    width: 75px;
-    display: flex;
-    flex-direction: row;
-    div {
-      width: 100%;
-    }
-  }
   .hp {
     float: right;
+    display: flex;
+    flex-direction: row;
+  }
+  .changeHP {
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 10px;
+    input {
+      width: 30%;
+      background: var(--text);
+      border: 1px solid var(--background);
+      cursor: pointer;
+      color: var(--background);
+      font-weight: bold;
+      padding: 1px;
+    }
   }
   .hpHolder {
     display: block;

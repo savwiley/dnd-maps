@@ -14,7 +14,7 @@ const CharModules = (props) => {
   const cInit = document.getElementById("initInput");
   const cColor = document.getElementById("colorInput");
 
-  let shownHP = curHP;
+  let shownHP = curHp;
   let change = 0;
 
   //finds percent of new HP
