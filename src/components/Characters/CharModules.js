@@ -14,18 +14,46 @@ const CharModules = (props) => {
   const cInit = document.getElementById("initInput");
   const cColor = document.getElementById("colorInput");
 
+  let shownHP = curHP;
+  let change = 0;
+
   //finds percent of new HP
   useEffect(() => {
-    const decimal = curHp / hp;
+    const decimal = shownHP / hp;
     const percent = decimal * 100;
     setNewHP(percent);
-  }, [curHp, hp]);
+  }, [shownHP, hp]);
 
   return (
     <CharModule newHP={newHP} color={color} className={`${name}-${init}`}>
       <div className="name">{name}</div>
       <div className="hp">
-        {curHp} / {hp}
+        <div className="changeHP">
+          <input 
+            type="button"
+            value="+"
+            className="plusHP"
+            onClick={() => {
+              shownHP = shownHP + change;
+            }}
+          />
+          <input 
+            type="number"
+            className="changeHPNumb"
+            onBlur={(e) => {
+              change = e.target.valueAsNumber;
+            }}
+          />
+          <input 
+            type="button"
+            value="-"
+            className="minusHP"
+            onClick={() => {
+              shownHP = shownHP - change;
+            }}
+          />
+        </div>
+        {shownHP} / {hp}
       </div>
       <div className="hpHolder">
         <div className="hpActual"></div>
@@ -41,7 +69,7 @@ const CharModules = (props) => {
             cName.value = name;
             cName.focus();
             cName.blur();
-            cCurHP.value = curHp;
+            cCurHP.value = shownHP;
             cCurHP.focus();
             cCurHP.blur();
             cHP.value = hp;

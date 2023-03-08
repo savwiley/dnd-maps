@@ -86,6 +86,14 @@ export const CharModule = styled.div`
     font-weight: bold;
     float: left;
   }
+  .changeHP {
+    width: 75px;
+    display: flex;
+    flex-direction: row;
+    div {
+      width: 100%;
+    }
+  }
   .hp {
     float: right;
   }
