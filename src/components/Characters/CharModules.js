@@ -6,6 +6,8 @@ import { CharModule, Exit, Edit } from "./style";
 const CharModules = (props) => {
   const { name, hp, curHp, armor, init, color, setColor } = props;
   const [newHP, setNewHP] = useState(100);
+  const [shownHP, setShownHP] = useState(curHp);
+  const [change, setChange] = useState(0);
 
   const cName = document.getElementById("nameInput");
   const cCurHP = document.getElementById("curHPInput");
@@ -13,9 +15,6 @@ const CharModules = (props) => {
   const cArmor = document.getElementById("armorInput");
   const cInit = document.getElementById("initInput");
   const cColor = document.getElementById("colorInput");
-
-  let shownHP = curHp;
-  let change = 0;
 
   //finds percent of new HP
   useEffect(() => {
@@ -34,14 +33,15 @@ const CharModules = (props) => {
             value="+"
             className="plusHP"
             onClick={() => {
-              shownHP = shownHP + change;
+              const newHp = shownHP + change;
+              setShownHP(newHp)
             }}
           />
           <input 
             type="number"
             className="changeHPNumb"
             onBlur={(e) => {
-              change = e.target.valueAsNumber;
+              setChange(e.target.valueAsNumber);
             }}
           />
           <input 
@@ -49,7 +49,8 @@ const CharModules = (props) => {
             value="-"
             className="minusHP"
             onClick={() => {
-              shownHP = shownHP - change;
+              const newHp = shownHP - change;
+              setShownHP(newHp)
             }}
           />
         </div>
